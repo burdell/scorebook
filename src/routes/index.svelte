@@ -1,3 +1,17 @@
+<script context="module">
+  import { getGames } from "../api/games";
+
+  export async function preload(page, session) {
+    const games = await getGames(this.fetch);
+
+    return { games };
+  }
+</script>
+
+<script>
+  export let games;
+</script>
+
 <style>
   h1 {
     text-align: center;
@@ -22,4 +36,10 @@
   <title>Scorebook</title>
 </svelte:head>
 
-<h1>Great success!</h1>
+<div>
+  {#each games as game}
+    <a href={`/games/${game.id}`}>
+      {game.gameInfo.visitingTeam} @ {game.gameInfo.homeTeam} | {game.gameInfo.date}
+    </a>
+  {/each}
+</div>
