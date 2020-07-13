@@ -12,6 +12,8 @@
 <script>
   export let game;
 
+  console.log(game);
+
   import Lineup from "../../components/Lineup.svelte";
   import Gameplay from "../../components/Gameplay.svelte";
 </script>
@@ -47,7 +49,7 @@
 </div>
 <div class="game">
   <Lineup lineup={game.lineups.visiting} />
-  <Gameplay />
+  <Gameplay gameplay={game.gameplay} />
 </div>
 
 <div class="content" />
