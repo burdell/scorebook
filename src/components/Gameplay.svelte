@@ -1,8 +1,8 @@
 <script>
   export let gameplay;
+  import AtBat from "./AtBat.svelte";
 
-  const shownGameplay = gameplay.home;
-  console.log(shownGameplay);
+  const shownGameplay = gameplay.visiting;
 </script>
 
 <style>
@@ -20,7 +20,7 @@
 
   .inning-header {
     text-align: center;
-    flex: 1;
+    font-weight: 800;
   }
 
   .inning {
@@ -32,10 +32,10 @@
 <div class="gameplay">
   <div class="innings">
     {#each shownGameplay as inning, index}
-      <div class="inning-header">{index + 1}</div>
       <div class="inning">
+        <div class="inning-header">{index + 1}</div>
         {#each inning as atBat}
-          <div>{atBat && atBat.result ? atBat.result.display : ''}</div>
+          <AtBat {atBat} />
         {/each}
       </div>
     {/each}

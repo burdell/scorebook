@@ -271,7 +271,13 @@
                 "display": "3u"
               },
               "bases": []
-            }
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
           ],
           [
             null,
@@ -343,7 +349,8 @@
               "pitchCount": 1,
               "isOut": false,
               "bases": []
-            }
+            },
+            null
           ],
           [
             {
@@ -536,7 +543,13 @@
                 "display": "5-3"
               },
               "bases": []
-            }
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
           ],
           [
             null,
@@ -577,7 +590,10 @@
                 "display": "K"
               },
               "bases": []
-            }
+            },
+            null,
+            null,
+            null
           ],
           [
             null,
@@ -682,7 +698,9 @@
                 "display": "K"
               },
               "bases": []
-            }
+            },
+            null,
+            null
           ],
           [
             {
@@ -720,7 +738,13 @@
                 "display": "K"
               },
               "bases": []
-            }
+            },
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
           ]
         ],
         "visiting": [
@@ -785,7 +809,12 @@
                 "display": "P4"
               },
               "bases": []
-            }
+            },
+            null,
+            null,
+            null,
+            null,
+            null
           ],
           [
             null,
@@ -827,7 +856,9 @@
                 "display": "P2"
               },
               "bases": []
-            }
+            },
+            null,
+            null
           ],
           [
             {
@@ -930,7 +961,11 @@
                 "display": "3-1"
               },
               "bases": []
-            }
+            },
+            null,
+            null,
+            null,
+            null
           ],
           [
             {
@@ -1076,7 +1111,9 @@
                 "display": "1-3"
               },
               "bases": []
-            }
+            },
+            null,
+            null
           ],
           [
             {
@@ -1202,7 +1239,8 @@
                 "display": "K"
               },
               "bases": []
-            }
+            },
+            null
           ],
           [
             {
