@@ -13,7 +13,11 @@
 </script>
 
 <style>
-
+  .game {
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 800;
+  }
 </style>
 
 <svelte:head>
@@ -22,8 +26,10 @@
 
 <div>
   {#each games as game}
-    <a href={`/games/${game.id}`}>
-      {game.gameInfo.visitingTeam} @ {game.gameInfo.homeTeam} | {game.gameInfo.date}
-    </a>
+    <div class="game">
+      <a href={`/games/${game.id}`}>
+        {game.gameInfo.visitingTeam} @ {game.gameInfo.homeTeam} | {game.gameInfo.date}
+      </a>
+    </div>
   {/each}
 </div>

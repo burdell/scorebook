@@ -1,8 +1,7 @@
 <script>
   export let gameplay;
   import AtBat from "./AtBat.svelte";
-
-  const shownGameplay = gameplay.visiting;
+  import ColumnHeader from "./ColumnHeader.svelte";
 </script>
 
 <style>
@@ -15,25 +14,23 @@
     width: 100%;
     justify-content: space-between;
     box-sizing: border-box;
-    padding: 0 1rem;
-  }
-
-  .inning-header {
-    text-align: center;
-    font-weight: 800;
+    padding-right: 1rem;
+    height: calc(100vh - 120px);
   }
 
   .inning {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
+    align-items: center;
   }
 </style>
 
 <div class="gameplay">
   <div class="innings">
-    {#each shownGameplay as inning, index}
+    {#each gameplay as inning, index}
       <div class="inning">
-        <div class="inning-header">{index + 1}</div>
+        <ColumnHeader>{index + 1}</ColumnHeader>
         {#each inning as atBat}
           <AtBat {atBat} />
         {/each}
