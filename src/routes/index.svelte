@@ -28,7 +28,8 @@
   {#each games as game}
     <div class="game">
       <a href={`/games/${game.id}`}>
-        {game.gameInfo.visitingTeam} @ {game.gameInfo.homeTeam} | {game.gameInfo.date}
+        {game.gameInfo.visitingTeam.fullName} @ {game.gameInfo.homeTeam.fullName}
+        | {game.gameInfo.date}
       </a>
     </div>
   {/each}

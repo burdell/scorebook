@@ -14,20 +14,26 @@
 
   import Lineup from "../../components/Lineup.svelte";
   import Gameplay from "../../components/Gameplay.svelte";
+  import GameStats from "../../components/GameStats.svelte";
 
   const visitingTeam = game.gameInfo.visitingTeam;
   const homeTeam = game.gameInfo.homeTeam;
 
-  let shownTeam = visitingTeam;
+  const visitingTeamName = visitingTeam.fullName;
+  const homeTeamName = homeTeam.fullName;
+
+  console.log(game.stats);
+
+  let shownTeam = visitingTeamName;
   function changeTeam() {
-    if (shownTeam === visitingTeam) {
-      shownTeam = homeTeam;
+    if (shownTeam === visitingTeamName) {
+      shownTeam = homeTeamName;
     } else {
-      shownTeam = visitingTeam;
+      shownTeam = visitingTeamName;
     }
   }
 
-  $: showingVisting = shownTeam === visitingTeam;
+  $: showingVisting = shownTeam === visitingTeamName;
   $: shownLineup = showingVisting ? game.lineups.visiting : game.lineups.home;
   $: shownGameplay = showingVisting
     ? game.gameplay.visiting
@@ -51,11 +57,11 @@
 </style>
 
 <svelte:head>
-  <title>{visitingTeam} @ {homeTeam} | {game.gameInfo.date}</title>
+  <title>{visitingTeamName} @ {homeTeamName} | {game.gameInfo.date}</title>
 </svelte:head>
 
 <div class="game-info">
-  <div>{visitingTeam} @ {homeTeam}</div>
+  <div>{visitingTeamName} @ {homeTeamName}</div>
   <div>
     {new Date(game.gameInfo.date).toLocaleDateString()} @ {game.gameInfo.startTime}
   </div>
@@ -65,5 +71,6 @@
   <Lineup lineup={shownLineup} teamName={shownTeam} {changeTeam} />
   <Gameplay gameplay={shownGameplay} />
 </div>
-
-<div class="content" />
+<div class="stats">
+  <GameStats {game} />
+</div>
