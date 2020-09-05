@@ -1,8 +1,34 @@
 <script>
   export let gameplay;
   import AtBat from "./AtBat.svelte";
+  import ColumnHeader from "./ColumnHeader.svelte";
 
-  const shownGameplay = gameplay.visiting;
+  function getInningChunk(atBatList) {
+    return atBatList.reduce((resultArray, item, index) => {
+      const chunkIndex = Math.floor(index / 9);
+
+      if (!resultArray[chunkIndex]) {
+        resultArray[chunkIndex] = []; // start a new chunk
+      }
+
+      resultArray[chunkIndex].push(item);
+
+      return resultArray;
+    }, []);
+  }
+
+  $: inningList = gameplay.flatMap((inning, i) => {
+    const inningDisplay = i + 1;
+    if (inning.length > 9) {
+      const inningChunks = getInningChunk(inning).map(atBats => ({
+        inningDisplay,
+        atBats
+      }));
+      return inningChunks;
+    }
+
+    return { inningDisplay, atBats: inning };
+  });
 </script>
 
 <style>
@@ -15,26 +41,24 @@
     width: 100%;
     justify-content: space-between;
     box-sizing: border-box;
-    padding: 0 1rem;
-  }
-
-  .inning-header {
-    text-align: center;
-    font-weight: 800;
+    padding-right: 1rem;
+    height: calc(100vh - 120px);
   }
 
   .inning {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
+    align-items: center;
   }
 </style>
 
 <div class="gameplay">
   <div class="innings">
-    {#each shownGameplay as inning, index}
+    {#each inningList as inning}
       <div class="inning">
-        <div class="inning-header">{index + 1}</div>
-        {#each inning as atBat}
+        <ColumnHeader>{inning.inningDisplay}</ColumnHeader>
+        {#each inning.atBats as atBat}
           <AtBat {atBat} />
         {/each}
       </div>

@@ -12,10 +12,26 @@
 <script>
   export let game;
 
-  console.log(game);
-
   import Lineup from "../../components/Lineup.svelte";
   import Gameplay from "../../components/Gameplay.svelte";
+
+  const visitingTeam = game.gameInfo.visitingTeam;
+  const homeTeam = game.gameInfo.homeTeam;
+
+  let shownTeam = visitingTeam;
+  function changeTeam() {
+    if (shownTeam === visitingTeam) {
+      shownTeam = homeTeam;
+    } else {
+      shownTeam = visitingTeam;
+    }
+  }
+
+  $: showingVisting = shownTeam === visitingTeam;
+  $: shownLineup = showingVisting ? game.lineups.visiting : game.lineups.home;
+  $: shownGameplay = showingVisting
+    ? game.gameplay.visiting
+    : game.gameplay.home;
 </script>
 
 <style>
@@ -35,21 +51,19 @@
 </style>
 
 <svelte:head>
-  <title>
-    {game.gameInfo.visitingTeam} @ {game.gameInfo.homeTeam} | {game.gameInfo.date}
-  </title>
+  <title>{visitingTeam} @ {homeTeam} | {game.gameInfo.date}</title>
 </svelte:head>
 
 <div class="game-info">
-  <div>{game.gameInfo.visitingTeam} @ {game.gameInfo.homeTeam}</div>
+  <div>{visitingTeam} @ {homeTeam}</div>
   <div>
     {new Date(game.gameInfo.date).toLocaleDateString()} @ {game.gameInfo.startTime}
   </div>
   <div>{game.gameInfo.location}</div>
 </div>
 <div class="game">
-  <Lineup lineup={game.lineups.visiting} />
-  <Gameplay gameplay={game.gameplay} />
+  <Lineup lineup={shownLineup} teamName={shownTeam} {changeTeam} />
+  <Gameplay gameplay={shownGameplay} />
 </div>
 
 <div class="content" />
