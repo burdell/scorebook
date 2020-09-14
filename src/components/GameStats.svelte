@@ -2,18 +2,22 @@
   import ScoringSummary from "./ScoringSummary.svelte";
 
   export let game;
+  export let shownPitchers;
 
   const visitingTeam = game.gameInfo.visitingTeam;
   const homeTeam = game.gameInfo.homeTeam;
 
   const visitingStats = game.stats.visiting;
   const homeStats = game.stats.home;
+
+  const pitchers = game.pitchers.home;
+  console.log(game.pitchers);
 </script>
 
 <style>
   .game-stats {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-around;
     padding: 0.5rem 1rem;
   }
 
@@ -21,9 +25,23 @@
     border: 1px solid black;
     padding: 0.3rem;
   }
+
+  .header {
+    font-weight: 800;
+  }
 </style>
 
 <div class="game-stats">
+  <div class="pitching">
+    <div class="header">Pitchers</div>
+    {#each shownPitchers as pitcher}
+      <div>
+        {pitcher.player.name}
+        {pitcher.player.type === 'sub' ? `(${pitcher.player.inningEntered})` : ''}
+        - {pitcher.stats.er} ER
+      </div>
+    {/each}
+  </div>
   <div class="scoring">
     <ScoringSummary
       team={visitingTeam.abbreviation}

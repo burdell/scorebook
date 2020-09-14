@@ -1,6 +1,8 @@
 <script>
   export let balls;
   export let strikes;
+
+  $: showCount = balls || strikes;
 </script>
 
 <style>
@@ -32,13 +34,15 @@
 </style>
 
 <div class="count">
-  <div class="count-display">
-    <div class="count-item {balls >= 1 ? 'filled' : ''}" />
-    <div class="count-item {balls >= 2 ? 'filled' : ''}" />
-    <div class="count-item {balls >= 3 ? 'filled' : ''}" />
-  </div>
-  <div class="count-display">
-    <div class="count-item {strikes >= 1 ? 'filled' : ''}" />
-    <div class="count-item {strikes >= 3 ? 'filled' : ''}" />
-  </div>
+  {#if showCount}
+    <div class="count-display">
+      <div class="count-item {balls >= 1 ? 'filled' : ''}" />
+      <div class="count-item {balls >= 2 ? 'filled' : ''}" />
+      <div class="count-item {balls >= 3 ? 'filled' : ''}" />
+    </div>
+    <div class="count-display">
+      <div class="count-item {strikes >= 1 ? 'filled' : ''}" />
+      <div class="count-item {strikes >= 2 ? 'filled' : ''}" />
+    </div>
+  {/if}
 </div>

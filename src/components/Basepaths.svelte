@@ -28,6 +28,7 @@
       : currentBases.length - 1;
   }
   $: lastBaseReached = getLastBaseReached(bases);
+  $: isLookingStrikeout = result.result === "K-looking";
 </script>
 
 <style>
@@ -98,13 +99,20 @@
     border: 1px solid black;
     background-color: #e1e1e1;
   }
+
+  .looking-strikeout {
+    transform: rotate(-45deg) scaleX(-1);
+  }
 </style>
 
 <div>
   <div class="result-container">
     <div class="basepaths reached-{lastBaseReached}">
       {#if bases.length === 0}
-        <div class="result-display centered-result">{result.display}</div>
+        <div
+          class="result-display centered-result {isLookingStrikeout ? 'looking-strikeout' : ''}">
+          {result.display}
+        </div>
       {/if}
       {#each baseDisplays as baseDisplay, index}
         <div class="result-display base-result base-result-{index + 1}">

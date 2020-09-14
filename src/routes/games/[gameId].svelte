@@ -22,8 +22,6 @@
   const visitingTeamName = visitingTeam.fullName;
   const homeTeamName = homeTeam.fullName;
 
-  console.log(game.stats);
-
   let shownTeam = visitingTeamName;
   function changeTeam() {
     if (shownTeam === visitingTeamName) {
@@ -38,6 +36,9 @@
   $: shownGameplay = showingVisting
     ? game.gameplay.visiting
     : game.gameplay.home;
+  $: shownPitchers = showingVisting
+    ? game.pitchers.visiting
+    : game.pitchers.home;
 </script>
 
 <style>
@@ -72,5 +73,5 @@
   <Gameplay gameplay={shownGameplay} />
 </div>
 <div class="stats">
-  <GameStats {game} />
+  <GameStats {game} {shownPitchers} />
 </div>

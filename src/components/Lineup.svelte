@@ -9,6 +9,7 @@
   function positionDisplay(positionNumber) {
     if (positionNumber === 11) return "PH";
     if (positionNumber === 10) return "DH";
+    if (positionNumber === 12) return "PR";
 
     return positionNumber;
   }
