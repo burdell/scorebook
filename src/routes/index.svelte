@@ -54,7 +54,7 @@
 <div class="list-page">
   {#each lists as list}
     <div class="list">
-      <a href="/{list.type}/{list.urlSlug}">
+      <a href="/{list.type}/{list.listId}">
         <div class="list-name">{list.name}</div>
         <div class="list-description">{list.description}</div>
       </a>

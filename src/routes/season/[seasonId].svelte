@@ -16,7 +16,7 @@
   $: currentlyShownSeriesId = undefined
 
   const targetTeam = season.targetTeam
-  function formatSeriesName(visitingTeam, homeTeam) {
+  function getTeamDisplay(homeTeam, visitingTeam) {
     if (targetTeam === homeTeam) {
       return `vs ${visitingTeam}`
     }
@@ -26,6 +26,21 @@
     }
 
     return `${visitingTeam} @ ${homeTeam}`
+  }
+  function getSeriesInfo({
+    visitingTeam,
+    homeTeam,
+    homeWins,
+    visitingWins,
+    seriesName,
+  }) {
+    const seriesDisplay = seriesName || getTeamDisplay(homeTeam, visitingTeam)
+
+    const isVisiting = targetTeam === visitingTeam
+    const targetRuns = isVisiting ? visitingWins : homeWins
+    const otherRuns = isVisiting ? homeWins : visitingWins
+
+    return `${seriesDisplay} (${targetRuns}-${otherRuns})`
   }
 
   async function loadSeries(seriesId) {
@@ -64,7 +79,7 @@
 
   .list-page {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .list-description {
@@ -80,14 +95,14 @@
 <div class="list-page">
   {#each season.series as series}
     <div class="list">
-      <div class="list-name">
-        {formatSeriesName(series.visitingTeam, series.homeTeam)}
-      </div>
+      <div class="list-name">{getSeriesInfo(series)}</div>
       <div class="list-description">{series.startDate}-{series.endDate}</div>
       <div>
-        <button on:click={() => showSeries(series.urlSlug)}>Show Series</button>
-        {#if currentlyShownSeriesId === series.urlSlug && loadedSeries[series.urlSlug]}
-          {#each loadedSeries[series.urlSlug] as seriesGame}
+        <button on:click={() => showSeries(series.seriesId)}>
+          Show Series
+        </button>
+        {#if currentlyShownSeriesId === series.seriesId && loadedSeries[series.seriesId]}
+          {#each loadedSeries[series.seriesId] as seriesGame}
             <ListGame game={seriesGame} />
           {/each}
         {/if}
