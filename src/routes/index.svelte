@@ -1,17 +1,15 @@
 <script context="module">
-  import { getAllLists } from "../api/games";
+  import { getAllLists } from '../api/games'
 
   export async function preload(page, session) {
-    const lists = await getAllLists(this.fetch);
+    const lists = await getAllLists(this.fetch)
 
-    return { lists };
+    return { lists }
   }
 </script>
 
 <script>
-  export let lists;
-
-  console.log(lists);
+  export let lists
 </script>
 
 <style>
