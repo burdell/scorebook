@@ -1,114 +1,96 @@
-import resolve from "@rollup/plugin-node-resolve";
-import replace from "@rollup/plugin-replace";
-import commonjs from "@rollup/plugin-commonjs";
-import svelte from "rollup-plugin-svelte";
-import babel from "rollup-plugin-babel";
-import json from "@rollup/plugin-json";
-import { terser } from "rollup-plugin-terser";
-import config from "sapper/config/rollup.js";
-import pkg from "./package.json";
+import resolve from '@rollup/plugin-node-resolve'
+import replace from '@rollup/plugin-replace'
+import commonjs from '@rollup/plugin-commonjs'
+import svelte from 'rollup-plugin-svelte'
+import esbuild from 'rollup-plugin-esbuild'
+import config from 'sapper/config/rollup'
+import sveltePreprocess from 'svelte-preprocess'
+import pkg from './package.json'
 
-const mode = process.env.NODE_ENV;
-const dev = mode === "development";
-const legacy = !!process.env.SAPPER_LEGACY_BUILD;
+const defaults = { script: 'typescript' }
+const preprocess = [sveltePreprocess({ defaults })]
+const mode = process.env.NODE_ENV
+const dev = mode === 'development'
+const sourcemap = dev ? 'inline' : false
+const sapperVersion = pkg.devDependencies.sapper.match(/[0-9]{1,5}/g).map(el => Number(el))
 
-const onwarn = (warning, onwarn) =>
-  (warning.code === "CIRCULAR_DEPENDENCY" &&
-    /[/\\]@sapper[/\\]/.test(warning.message)) ||
-  onwarn(warning);
+const optimizer = server => esbuild({
+    include: /\.[jt]sx?$/,
+    minify: server ? (sapperVersion[1] >= 28 && sapperVersion[2] > 0) ? false : true : true,
+    target: 'es2017',
+    loaders: {
+        '.json': 'json'
+    }
+})
+
+const warningIsIgnored = (warning) => warning.message.includes(
+	'Use of eval is strongly discouraged, as it poses security risks and may cause issues with minification',
+) || warning.message.includes('Circular dependency: node_modules')
+
+// Workaround for https://github.lcom/sveltejs/sapper/issues/1266
+const onwarn = (warning, _onwarn) => (warning.code === 'CIRCULAR_DEPENDENCY' && /[/\\]@sapper[/\\]/.test(warning.message)) || warningIsIgnored(warning) || console.warn(warning.toString())
 
 export default {
-  client: {
-    input: config.client.input(),
-    output: config.client.output(),
-    plugins: [
-      replace({
-        "process.browser": true,
-        "process.env.NODE_ENV": JSON.stringify(mode),
-      }),
-      svelte({
-        dev,
-        hydratable: true,
-        emitCss: true,
-      }),
-      resolve({
-        browser: true,
-        dedupe: ["svelte"],
-      }),
-      commonjs(),
-      json(),
+	client: {
+        input: config.client.input().replace(/\.js$/, '.ts'),
+		output: config.client.output(),
+		plugins: [
+			replace({
+				"process.browser": true,
+				"process.env.NODE_ENV": JSON.stringify(mode),
+			}),
+			svelte({
+                preprocess,
+				dev,
+				hydratable: true,
+				emitCss: true,
+			}),
+			resolve(),
+            commonjs(),
+            optimizer()
+		],
 
-      legacy &&
-        babel({
-          extensions: [".js", ".mjs", ".html", ".svelte"],
-          runtimeHelpers: true,
-          exclude: ["node_modules/@babel/**"],
-          presets: [
-            [
-              "@babel/preset-env",
-              {
-                targets: "> 0.25%, not dead",
-              },
-            ],
-          ],
-          plugins: [
-            "@babel/plugin-syntax-dynamic-import",
-            [
-              "@babel/plugin-transform-runtime",
-              {
-                useESModules: true,
-              },
-            ],
-          ],
-        }),
+		preserveEntrySignatures: false,
+		onwarn,
+	},
 
-      !dev &&
-        terser({
-          module: true,
-        }),
-    ],
+	server: {
+        input: {
+            server: config.server.input().server.replace(/\.js$/, '.ts')
+        },
+		output: { ...config.server.output(), sourcemap },
+		plugins: [
+			replace({
+				"process.browser": false,
+				"process.env.NODE_ENV": JSON.stringify(mode),
+			}),
+			svelte({
+                preprocess,
+				generate: "ssr",
+				dev,
+			}),
+			resolve(),
+            commonjs(),
+            optimizer(true)
+		],
+		external: Object.keys(pkg.dependencies).concat(
+			require("module").builtinModules || Object.keys(process.binding("natives")), // eslint-disable-line global-require
+		),
+		onwarn,
+	},
 
-    onwarn,
-  },
-
-  server: {
-    input: config.server.input(),
-    output: config.server.output(),
-    plugins: [
-      replace({
-        "process.browser": false,
-        "process.env.NODE_ENV": JSON.stringify(mode),
-      }),
-      svelte({
-        generate: "ssr",
-        dev,
-      }),
-      resolve({
-        dedupe: ["svelte"],
-      }),
-      commonjs(),
-    ],
-    external: Object.keys(pkg.dependencies).concat(
-      require("module").builtinModules ||
-        Object.keys(process.binding("natives"))
-    ),
-
-    onwarn,
-  },
-
-  serviceworker: {
-    input: config.serviceworker.input(),
-    output: config.serviceworker.output(),
-    plugins: [
-      resolve(),
-      replace({
-        "process.browser": true,
-        "process.env.NODE_ENV": JSON.stringify(mode),
-      }),
-      commonjs(),
-      !dev && terser(),
-    ],
-
-    onwarn,
-  },
+	serviceworker: {
+		input: config.serviceworker.input().replace(/\.js$/, '.ts'),
+        output: config.serviceworker.output(),
+		plugins: [
+			resolve(),
+			replace({
+				"process.browser": true,
+				"process.env.NODE_ENV": JSON.stringify(mode),
+			}),
+            commonjs(),
+            optimizer()
+		],
+		onwarn,
+	},
 };

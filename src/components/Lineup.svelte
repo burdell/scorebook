@@ -1,17 +1,18 @@
 <script>
-  import ColumnHeader from "./ColumnHeader.svelte";
-  import ColumnItem from "./ColumnItem.svelte";
+  import ColumnHeader from './ColumnHeader.svelte'
+  import ColumnItem from './ColumnItem.svelte'
+  import type { Lineup, FieldPosition } from '../types'
 
-  export let lineup;
-  export let teamName;
-  export let changeTeam;
+  export let lineup: Lineup
+  export let teamName: string
+  export let changeTeam: () => void
 
-  function positionDisplay(positionNumber) {
-    if (positionNumber === 11) return "PH";
-    if (positionNumber === 10) return "DH";
-    if (positionNumber === 12) return "PR";
+  function positionDisplay(positionNumber: FieldPosition) {
+    if (positionNumber === 11) return 'PH'
+    if (positionNumber === 10) return 'DH'
+    if (positionNumber === 12) return 'PR'
 
-    return positionNumber;
+    return positionNumber
   }
 </script>
 
@@ -46,7 +47,7 @@
     <div>{teamName}</div>
     <button on:click={changeTeam}>(Switch)</button>
   </ColumnHeader>
-  {#each lineup as lineupEntry, i}
+  {#each lineup as lineupEntry}
     <ColumnItem>
       <div class="lineup-spot">
         {#each lineupEntry as { position, player, inning }}

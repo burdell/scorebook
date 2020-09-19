@@ -1,16 +1,16 @@
 <script>
+  import type { Game, PitcherEntry } from '../types'
+
   import ScoringSummary from './ScoringSummary.svelte'
 
-  export let game
-  export let shownPitchers
+  export let game: Game
+  export let shownPitchers: PitcherEntry[]
 
   const visitingTeam = game.gameInfo.visitingTeam
   const homeTeam = game.gameInfo.homeTeam
 
   const visitingStats = game.stats.visiting
   const homeStats = game.stats.home
-
-  const pitchers = game.pitchers.home
 </script>
 
 <style>

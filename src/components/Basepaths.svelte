@@ -1,34 +1,36 @@
 <script>
-  export let result;
-  export let bases;
+  import type { AtBatResult, BaseResult } from '../types'
 
-  $: baseDisplays = bases.map(base => {
-    const results = [];
+  export let result: AtBatResult
+  export let bases: BaseResult[]
+
+  $: baseDisplays = bases.map((base) => {
+    const results = []
     if (base.isAtBatResult) {
-      results.push(result.display);
+      results.push(result.display)
     }
 
     if (base.result) {
-      results.push(base.result.display);
+      results.push(base.result.display)
     }
 
     if (base.onBasePutout) {
-      results.push(base.onBasePutout.display);
+      results.push(base.onBasePutout.display)
     }
 
-    return results.join(", ");
-  });
+    return results.join(', ')
+  })
 
-  function getLastBaseReached(currentBases) {
-    if (!currentBases || currentBases.length === 0) return 0;
+  function getLastBaseReached(currentBases: BaseResult[]) {
+    if (!currentBases || currentBases.length === 0) return 0
 
-    const lastBaseAttempted = currentBases[currentBases.length - 1];
+    const lastBaseAttempted = currentBases[currentBases.length - 1]
     return lastBaseAttempted.advanced
       ? currentBases.length
-      : currentBases.length - 1;
+      : currentBases.length - 1
   }
-  $: lastBaseReached = getLastBaseReached(bases);
-  $: isLookingStrikeout = result.result === "K-looking";
+  $: lastBaseReached = getLastBaseReached(bases)
+  $: isLookingStrikeout = result.result === 'K-looking'
 </script>
 
 <style>

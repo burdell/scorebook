@@ -1,8 +1,9 @@
 <script>
   import GameList from './GameList.svelte'
+  import type { ListGame } from '../types'
 
-  export let name
-  export let games
+  export let name: string
+  export let games: ListGame[]
 </script>
 
 <style>

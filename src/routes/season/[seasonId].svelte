@@ -1,22 +1,35 @@
 <script context="module">
-  import { getSeason, getSeries } from '../../api/games'
+  import { getSeason, getSeries } from '../../api'
 
-  export async function preload(page, session) {
+  export const preload: typeof SapperPreload = async function (page, session) {
     const { seasonId } = page.params
-    const season = await getSeason(seasonId, this.fetch)
+    const season = await getSeason(seasonId, {
+      fetch: this.fetch,
+      gameApi: session.API_URL,
+    })
     return { season }
   }
 </script>
 
 <script>
+  import { stores } from '@sapper/app'
+  import type { Series, Season, ListGame as ListGameType } from '../../types'
   import ListGame from '../../components/ListGame.svelte'
-  export let season
+  export let season: Season
 
-  $: loadedSeries = {}
-  $: currentlyShownSeriesId = undefined
+  let gameApi = ''
+  stores().session.subscribe(({ API_URL }: any) => {
+    gameApi = API_URL
+  })
+
+  const loaded: { [seriesId: string]: ListGameType[] } = {}
+  $: loadedSeries = loaded
+
+  let shown: string | undefined = undefined
+  $: currentlyShownSeriesId = shown
 
   const targetTeam = season.targetTeam
-  function getTeamDisplay(homeTeam, visitingTeam) {
+  function getTeamDisplay(homeTeam: string, visitingTeam: string) {
     if (targetTeam === homeTeam) {
       return `vs ${visitingTeam}`
     }
@@ -33,7 +46,7 @@
     homeWins,
     visitingWins,
     seriesName,
-  }) {
+  }: Series) {
     const seriesDisplay = seriesName || getTeamDisplay(homeTeam, visitingTeam)
 
     const isVisiting = targetTeam === visitingTeam
@@ -43,12 +56,15 @@
     return `${seriesDisplay} (${targetRuns}-${otherRuns})`
   }
 
-  async function loadSeries(seriesId) {
-    const series = await getSeries(seriesId, window.fetch)
+  async function loadSeries(seriesId: string) {
+    const series = await getSeries(seriesId, {
+      fetch: window.fetch,
+      gameApi,
+    })
     loadedSeries[seriesId] = series
   }
 
-  async function showSeries(seriesId) {
+  async function showSeries(seriesId: string) {
     const shownSeries = loadedSeries[seriesId]
 
     if (!shownSeries) {

@@ -1,34 +1,36 @@
 <script>
-  export let gameplay;
-  import AtBat from "./AtBat.svelte";
-  import ColumnHeader from "./ColumnHeader.svelte";
+  import AtBat from './AtBat.svelte'
+  import ColumnHeader from './ColumnHeader.svelte'
+  import type { AtBat as AtBatType } from '../types'
 
-  function getInningChunk(atBatList) {
-    return atBatList.reduce((resultArray, item, index) => {
-      const chunkIndex = Math.floor(index / 9);
+  export let gameplay: AtBatType[][]
+
+  function getInningChunk(atBatList: AtBatType[]) {
+    return atBatList.reduce<AtBatType[][]>((resultArray, item, index) => {
+      const chunkIndex = Math.floor(index / 9)
 
       if (!resultArray[chunkIndex]) {
-        resultArray[chunkIndex] = []; // start a new chunk
+        resultArray[chunkIndex] = [] as AtBatType[] // start a new chunk
       }
 
-      resultArray[chunkIndex].push(item);
+      resultArray[chunkIndex].push(item)
 
-      return resultArray;
-    }, []);
+      return resultArray
+    }, [])
   }
 
   $: inningList = gameplay.flatMap((inning, i) => {
-    const inningDisplay = i + 1;
+    const inningDisplay = i + 1
     if (inning.length > 9) {
-      const inningChunks = getInningChunk(inning).map(atBats => ({
+      const inningChunks = getInningChunk(inning).map((atBats) => ({
         inningDisplay,
-        atBats
-      }));
-      return inningChunks;
+        atBats,
+      }))
+      return inningChunks
     }
 
-    return { inningDisplay, atBats: inning };
-  });
+    return { inningDisplay, atBats: inning }
+  })
 </script>
 
 <style>

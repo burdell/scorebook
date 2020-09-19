@@ -1,13 +1,21 @@
 <script>
-  export let game;
+  import type { ListGame } from '../types'
 
-  function formatDate(date, options) {
-    return new Date(date).toLocaleDateString("en", {
-      month: "short",
-      day: "numeric",
-      year: "numeric"
-    });
+  function formatDate(
+    date: string | Date | number,
+    options?: Intl.DateTimeFormatOptions,
+  ) {
+    return new Date(date).toLocaleDateString(
+      'en',
+      options || {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric',
+      },
+    )
   }
+
+  export let game: ListGame
 </script>
 
 <style>

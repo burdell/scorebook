@@ -1,20 +1,22 @@
-<script>
-  import Nav from "../components/Nav.svelte";
-
-  export let segment;
+<script context="module">
+  export const preload: Function = () => {}
 </script>
 
-<style>
-  main {
-    position: relative;
-    background-color: white;
-    margin: 0 auto;
-  }
+<script>
+  import { stores } from '@sapper/app'
+  import Nav from '../components/Nav.svelte'
 
-  * {
-    box-sizing: border-box;
+  export let segment: string = ''
+  if (segment) {
   }
-</style>
+  const { page }: any = stores()
+  let path: string
+  $: path = $page.path.slice(1)
+</script>
+
+<svelte:head>
+  <title>{path ? path.charAt(0).toUpperCase() + path.slice(1) : 'Index'}</title>
+</svelte:head>
 
 <Nav {segment} />
 

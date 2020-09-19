@@ -1,15 +1,20 @@
 <script context="module">
-  import { getAllLists } from '../api/games'
+  import { getAllLists } from '../api'
 
-  export async function preload(page, session) {
-    const lists = await getAllLists(this.fetch)
-
+  export const preload: typeof SapperPreload = async function (page, session) {
+    const lists = await getAllLists({
+      fetch: this.fetch,
+      gameApi: session.API_URL,
+    })
     return { lists }
   }
 </script>
 
 <script>
-  export let lists
+  import type { List } from '../types'
+
+  export let lists: List[] = []
+  $: lists = lists
 </script>
 
 <style>

@@ -1,9 +1,11 @@
 <script>
-  import Count from "./Count.svelte";
-  import ColumnItem from "./ColumnItem.svelte";
-  import Basepaths from "./Basepaths.svelte";
+  import type { AtBat } from '../types'
 
-  export let atBat;
+  import Count from './Count.svelte'
+  import ColumnItem from './ColumnItem.svelte'
+  import Basepaths from './Basepaths.svelte'
+
+  export let atBat: AtBat
 </script>
 
 <style>

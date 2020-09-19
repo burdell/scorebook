@@ -1,9 +1,9 @@
 <script>
-  export let team;
-  export let scoring;
-  export let runs;
-  export let hits;
-  export let errors;
+  export let team: string
+  export let scoring: number[]
+  export let runs: number
+  export let hits: number
+  export let errors: number
 </script>
 
 <style>

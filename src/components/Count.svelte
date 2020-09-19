@@ -1,8 +1,8 @@
 <script>
-  export let balls;
-  export let strikes;
+  export let balls: number
+  export let strikes: number
 
-  $: showCount = balls || strikes;
+  $: showCount = balls || strikes
 </script>
 
 <style>

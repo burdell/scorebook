@@ -1,44 +1,48 @@
 <script context="module">
-  import { getGame } from "../../api/games";
+  import { getGame } from '../../api'
 
-  export async function preload(page, session) {
-    const { gameId } = page.params;
-    const game = await getGame(gameId, this.fetch);
+  export const preload: typeof SapperPreload = async function (page, session) {
+    const { gameId } = page.params
+    const game = await getGame(gameId, {
+      fetch: this.fetch,
+      gameApi: session.API_URL,
+    })
 
-    return { game };
+    return { game }
   }
 </script>
 
 <script>
-  export let game;
+  import type { Game } from '../../types'
+  import Lineup from '../../components/Lineup.svelte'
+  import Gameplay from '../../components/Gameplay.svelte'
+  import GameStats from '../../components/GameStats.svelte'
 
-  import Lineup from "../../components/Lineup.svelte";
-  import Gameplay from "../../components/Gameplay.svelte";
-  import GameStats from "../../components/GameStats.svelte";
+  export let game: Game
 
-  const visitingTeam = game.gameInfo.visitingTeam;
-  const homeTeam = game.gameInfo.homeTeam;
+  const visitingTeam = game.gameInfo.visitingTeam
+  const homeTeam = game.gameInfo.homeTeam
 
-  const visitingTeamName = visitingTeam.fullName;
-  const homeTeamName = homeTeam.fullName;
+  const visitingTeamName = visitingTeam.fullName
+  const homeTeamName = homeTeam.fullName
 
-  let shownTeam = visitingTeamName;
+  let shownTeam = visitingTeamName
   function changeTeam() {
     if (shownTeam === visitingTeamName) {
-      shownTeam = homeTeamName;
+      shownTeam = homeTeamName
     } else {
-      shownTeam = visitingTeamName;
+      shownTeam = visitingTeamName
     }
   }
 
-  $: showingVisting = shownTeam === visitingTeamName;
-  $: shownLineup = showingVisting ? game.lineups.visiting : game.lineups.home;
+  $: showingVisting = shownTeam === visitingTeamName
+  $: shownLineup = showingVisting ? game.lineups.visiting : game.lineups.home
   $: shownGameplay = showingVisting
     ? game.gameplay.visiting
-    : game.gameplay.home;
+    : game.gameplay.home
   $: shownPitchers = showingVisting
     ? game.pitchers.visiting
-    : game.pitchers.home;
+    : game.pitchers.home
 </script>
 
 <style>

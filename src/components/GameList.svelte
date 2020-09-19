@@ -1,7 +1,8 @@
 <script>
-  import ListGame from "./ListGame.svelte";
+  import type { ListGame as ListGameType } from '../types'
+  import ListGame from './ListGame.svelte'
 
-  export let games;
+  export let games: ListGameType[]
 </script>
 
 <style>
