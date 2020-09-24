@@ -1,5 +1,6 @@
 :root {
   --nav-offset: 70px;
+  --borderRadius: 10px;
 }
 
 body {

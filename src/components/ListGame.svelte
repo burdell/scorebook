@@ -20,10 +20,17 @@
 
 <style>
   .list-game {
-    box-shadow: 0px 0px 2px 0px rgba(180, 180, 180, 1);
+    box-shadow: 0px 0px 3px 0px var(--primary9);
     padding: 1rem;
     margin: 1rem;
     background-color: var(--white9);
+    border-radius: 10px;
+    transition: 0.2s ease-in-out all;
+  }
+
+  .list-game:hover {
+    box-shadow: 0px 0px 5px 0px var(--primary9);
+    background-color: var(--gray8);
   }
 
   .game-info {

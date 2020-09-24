@@ -28,7 +28,13 @@
   <div class="section">
     <h1>What is this?</h1>
     <div class="section-text">
-      Scorekeeper is a project to programmatically generate scorecards from
+      Scorekeeper is a project to programmatically generate
+      <a
+        target="_blank"
+        href="https://en.wikipedia.org/wiki/Baseball_scorekeeping">
+        scorecards
+      </a>
+      from
       <a target="_blank" href="https://www.retrosheet.org/">Retrosheet</a>
       data. Retrosheet is a project that compiles play-by-play data for MLB
       games.
@@ -88,8 +94,5 @@
   <div class="section">
     <h1>Why are there so many Braves games?!</h1>
     <div class="section-text">I'm a Braves fan.</div>
-    <div class="section-text">
-      (let me know on Twitter or GitHub if there's something you want to see)
-    </div>
   </div>
 </ListPage>

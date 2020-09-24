@@ -8,13 +8,14 @@
 
 <style>
   .category-info {
+    margin: 0.5rem 1rem;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    border-bottom: 1px solid var(--primary8);
+    color: var(--primary8);
+    font-weight: 400;
     display: flex;
     justify-content: space-between;
-    border: 1px solid hsl(217, 49%, 88%);
-    background-color: hsl(217, 49%, 98%);
-    border-radius: 5px;
-    margin: 0.5rem 1rem;
-    padding: 0.5rem 1rem;
   }
 </style>
 

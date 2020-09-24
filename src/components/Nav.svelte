@@ -42,12 +42,13 @@
   .links a {
     padding-top: 0.5rem;
     font-weight: 400;
+    color: var(--primary3);
     font-size: 1rem;
+    transition: 0.2s all ease-in-out;
   }
 
   .links a:hover {
-    text-decoration: underline;
-    color: var(--seconary5);
+    color: var(--primary5);
   }
 </style>
 
