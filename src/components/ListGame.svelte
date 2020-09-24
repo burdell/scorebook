@@ -23,6 +23,7 @@
     box-shadow: 0px 0px 2px 0px rgba(180, 180, 180, 1);
     padding: 1rem;
     margin: 1rem;
+    background-color: var(--white9);
   }
 
   .game-info {

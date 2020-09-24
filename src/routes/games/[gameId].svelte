@@ -58,6 +58,11 @@
 
   .game {
     display: flex;
+    background-color: var(--white9);
+  }
+
+  .stats {
+    background-color: var(--white9);
   }
 </style>
 

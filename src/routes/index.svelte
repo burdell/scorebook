@@ -12,32 +12,37 @@
 
 <script>
   import type { List } from '../types'
+  import ListPage from '../components/ListPage.svelte'
 
   export let lists: List[] = []
   $: lists = lists
 </script>
 
 <style>
-  .list {
-    padding: 1rem;
+  .list-item {
     font-size: 1rem;
-    box-shadow: 0px 0px 2px 0px rgba(180, 180, 180, 1);
-    margin: 1rem;
-    transition: 0.1s ease-in-out all;
+    transition: 0.2s ease-in-out all;
+    padding: 1rem 2rem;
+    display: block;
   }
 
-  .list:hover {
-    box-shadow: 0px 0px 3px 0px rgba(180, 180, 180, 1);
+  .list-item:hover {
+    background-color: var(--gray8);
+  }
+
+  .list-item:first-child {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  .list-item:last-child {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
   }
 
   .list-name {
     font-size: 1.5rem;
     font-weight: 800;
-  }
-
-  .list-page {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
   }
 
   .list-description {
@@ -54,13 +59,13 @@
   <title>Scorebook</title>
 </svelte:head>
 
-<div class="list-page">
+<ListPage>
   {#each lists as list}
-    <div class="list">
-      <a href="/{list.type}/{list.listId}">
+    <a class="list-item" href="/{list.type}/{list.listId}">
+      <div class="list">
         <div class="list-name">{list.name}</div>
         <div class="list-description">{list.description}</div>
-      </a>
-    </div>
+      </div>
+    </a>
   {/each}
-</div>
+</ListPage>

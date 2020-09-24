@@ -82,6 +82,7 @@
     box-shadow: 0px 0px 2px 0px rgba(180, 180, 180, 1);
     margin: 1rem;
     transition: 0.1s ease-in-out all;
+    background-color: var(--white9);
   }
 
   .list:hover {

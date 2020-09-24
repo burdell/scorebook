@@ -4,13 +4,18 @@
 
 <style>
   nav {
-    border-bottom: 1px solid rgba(255, 62, 0, 0.1);
+    border-bottom: 1px solid var(--gray7);
     font-weight: 300;
     padding: 0 1em;
     display: flex;
     align-items: center;
     color: var(--primary5);
     background-color: var(--white9);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9000;
+    height: var(--nav-offset);
   }
 
   [aria-current] {
@@ -27,12 +32,11 @@
     font-size: 2rem;
     padding: 0.5rem 0;
     font-weight: 300;
-    font-family: 'Oleo Script', cursive;
+    font-family: 'Arvo', cursive;
   }
 
   .links {
     margin-left: 1.5rem;
-    font-family: 'Lato', serif;
   }
 
   .links a {

@@ -14,6 +14,13 @@
   $: path = $page.path.slice(1)
 </script>
 
+<style>
+  main {
+    margin-top: var(--nav-offset);
+    color: var(--gray1);
+  }
+</style>
+
 <svelte:head>
   <title>{path ? path.charAt(0).toUpperCase() + path.slice(1) : 'Index'}</title>
 </svelte:head>
