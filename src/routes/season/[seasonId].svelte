@@ -1,5 +1,5 @@
 <script context="module">
-  import { getSeason, getSeries } from '../../api'
+  import { getSeason } from '../../api'
 
   export const preload: typeof SapperPreload = async function (page, session) {
     const { seasonId } = page.params
@@ -12,21 +12,15 @@
 </script>
 
 <script>
-  import { stores } from '@sapper/app'
-  import type { Series, Season, ListGame as ListGameType } from '../../types'
-  import ListGame from '../../components/ListGame.svelte'
+  import type { Series, Season } from '../../types'
+  import Content from '../../components/Content/Content.svelte'
+  import ListItem from '../../components/List/ListItem.svelte'
+  import ListTitle from '../../components/List/ListTitle.svelte'
+  import { getMonthDayRange } from '../../utils/date'
+  import ContentContainer from '../../components/Content/ContentContainer.svelte'
+  import SeriesId from '../series/[seriesId].svelte'
+
   export let season: Season
-
-  let gameApi = ''
-  stores().session.subscribe(({ API_URL }: any) => {
-    gameApi = API_URL
-  })
-
-  const loaded: { [seriesId: string]: ListGameType[] } = {}
-  $: loadedSeries = loaded
-
-  let shown: string | undefined = undefined
-  $: currentlyShownSeriesId = shown
 
   const targetTeam = season.targetTeam
   function getTeamDisplay(homeTeam: string, visitingTeam: string) {
@@ -56,52 +50,36 @@
     return `${seriesDisplay} (${targetRuns}-${otherRuns})`
   }
 
-  async function loadSeries(seriesId: string) {
-    const series = await getSeries(seriesId, {
-      fetch: window.fetch,
-      gameApi,
+  const seriesByMonth: {
+    [monthYear: string]: { monthYear: string; series: Series[] }
+  } = {}
+  season.series.forEach((s) => {
+    const monthYear = new Date(s.startDate).toLocaleDateString('en', {
+      month: 'long',
+      year: 'numeric',
     })
-    loadedSeries[seriesId] = series
-  }
 
-  async function showSeries(seriesId: string) {
-    const shownSeries = loadedSeries[seriesId]
+    if (!seriesByMonth[monthYear])
+      seriesByMonth[monthYear] = { monthYear, series: [] }
 
-    if (!shownSeries) {
-      await loadSeries(seriesId)
-    }
-
-    currentlyShownSeriesId = seriesId
-  }
+    seriesByMonth[monthYear].series.push(s)
+  })
+  const shownSeries = Object.values(seriesByMonth)
 </script>
 
 <style>
-  .list {
-    padding: 1rem;
-    font-size: 1rem;
-    box-shadow: 0px 0px 2px 0px rgba(180, 180, 180, 1);
-    margin: 1rem;
-    transition: 0.1s ease-in-out all;
-    background-color: var(--white9);
-  }
-
-  .list:hover {
-    box-shadow: 0px 0px 3px 0px rgba(180, 180, 180, 1);
-  }
-
-  .list-name {
+  .series-info {
     font-size: 1.5rem;
     font-weight: 800;
   }
 
-  .list-page {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .list-description {
+  .series-date {
     font-size: 0.8rem;
     color: #b0b0b0;
+  }
+
+  a {
+    text-decoration: none;
   }
 </style>
 
@@ -109,21 +87,18 @@
   <title>{season.name}</title>
 </svelte:head>
 
-<div class="list-page">
-  {#each season.series as series}
-    <div class="list">
-      <div class="list-name">{getSeriesInfo(series)}</div>
-      <div class="list-description">{series.startDate}-{series.endDate}</div>
-      <div>
-        <button on:click={() => showSeries(series.seriesId)}>
-          Show Series
-        </button>
-        {#if currentlyShownSeriesId === series.seriesId && loadedSeries[series.seriesId]}
-          {#each loadedSeries[series.seriesId] as seriesGame}
-            <ListGame game={seriesGame} />
-          {/each}
-        {/if}
-      </div>
-    </div>
+<ContentContainer>
+  {#each shownSeries as shownSeries}
+    <ListTitle>{shownSeries.monthYear}</ListTitle>
+    <Content>
+      {#each shownSeries.series as series}
+        <ListItem>
+          <a href={`/series/${series.seriesId}`}>
+            <div class="series-info">{getSeriesInfo(series)}</div>
+            <div class="series-date">{getMonthDayRange(series)}</div>
+          </a>
+        </ListItem>
+      {/each}
+    </Content>
   {/each}
-</div>
+</ContentContainer>

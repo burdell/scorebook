@@ -1,7 +1,7 @@
 <script context="module">
   import { getAllLists } from '../api'
 
-  export const preload: typeof SapperPreload = async function (page, session) {
+  export const preload: typeof SapperPreload = async function (_page, session) {
     const lists = await getAllLists({
       fetch: this.fetch,
       gameApi: session.API_URL,
@@ -11,36 +11,15 @@
 </script>
 
 <script>
-  import type { List } from '../types'
-  import ListPage from '../components/ListPage.svelte'
+  import type { List as ListType } from '../types'
+  import ContentPage from '../components/Content/ContentPage.svelte'
+  import ListItem from '../components/List/ListItem.svelte'
 
-  export let lists: List[] = []
+  export let lists: ListType[] = []
   $: lists = lists
 </script>
 
 <style>
-  .list-item {
-    font-size: 1rem;
-    transition: 0.2s ease-in-out all;
-    padding: 1rem 2rem;
-    display: block;
-    background-color: var(--white9);
-  }
-
-  .list-item:hover {
-    background-color: var(--gray8);
-  }
-
-  .list-item:first-child {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-  }
-
-  .list-item:last-child {
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-  }
-
   .list-name {
     font-size: 1.5rem;
     font-weight: 800;
@@ -60,13 +39,15 @@
   <title>Scorebook</title>
 </svelte:head>
 
-<ListPage>
+<ContentPage>
   {#each lists as list}
-    <a class="list-item" href="/{list.type}/{list.listId}">
-      <div class="list">
-        <div class="list-name">{list.name}</div>
-        <div class="list-description">{list.description}</div>
-      </div>
-    </a>
+    <ListItem>
+      <a href="/{list.type}/{list.listId}">
+        <div>
+          <div class="list-name">{list.name}</div>
+          <div class="list-description">{list.description}</div>
+        </div>
+      </a>
+    </ListItem>
   {/each}
-</ListPage>
+</ContentPage>

@@ -1,5 +1,5 @@
 <script context="module">
-  import type { ListGame } from '../../types'
+  import type { SeriesGames } from '../../types'
   import { getSeries } from '../../api'
 
   export const preload: typeof SapperPreload = async function (page, session) {
@@ -13,11 +13,22 @@
 </script>
 
 <script>
-  import GameListPage from '../../components/GameListPage.svelte'
+  import GameList from '../../components/GameList.svelte'
+  import ContentContainer from '../../components/Content/ContentContainer.svelte'
+  import ListTitle from '../../components/List/ListTitle.svelte'
+  import { getMonthDayRange } from '../../utils/date'
 
-  export let series: ListGame[] = []
+  export let series: SeriesGames
+
+  const seriesDisplay =
+    series.seriesInfo.seriesName ||
+    `${series.seriesInfo.visitingTeam} @ ${series.seriesInfo.homeTeam}`
 </script>
 
-<div>
-  <GameListPage name="Some Series" games={series} />
-</div>
+<ContentContainer>
+  <ListTitle>
+    <div>{seriesDisplay}</div>
+    <div>{getMonthDayRange(series.seriesInfo, true)}</div>
+  </ListTitle>
+  <GameList games={series.games} />
+</ContentContainer>

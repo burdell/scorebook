@@ -17,6 +17,17 @@ export type Season = {
   series: Series[]
 }
 
+export type SeriesGames = {
+  seriesInfo: {
+    seriesName: string | undefined
+    homeTeam: string
+    visitingTeam: string
+    startDate: string
+    endDate: string
+  }
+  games: ListGame[]
+}
+
 export type PitcherEntry = {
   player: Player
   stats: PitchingStats

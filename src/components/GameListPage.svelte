@@ -1,21 +1,16 @@
 <script>
-  import GameList from './GameList.svelte'
   import type { ListGame } from '../types'
+  import GameList from './GameList.svelte'
+  import ListTitle from './List/ListTitle.svelte'
 
   export let name: string
   export let games: ListGame[]
 </script>
 
 <style>
-  .category-info {
-    margin: 0.5rem 1rem;
-    padding: 0.5rem;
-    font-size: 1.5rem;
-    border-bottom: 1px solid var(--primary8);
-    color: var(--primary8);
-    font-weight: 400;
-    display: flex;
-    justify-content: space-between;
+  .game-list {
+    width: 50%;
+    margin: 0 auto;
   }
 </style>
 
@@ -23,9 +18,9 @@
   <title>{name}</title>
 </svelte:head>
 
-<div>
+<div class="game-list">
   <div class="category-info">
-    <div>{name}</div>
+    <ListTitle>{name}</ListTitle>
   </div>
   <GameList {games} />
 </div>

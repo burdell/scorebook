@@ -13,12 +13,15 @@
 </script>
 
 <script>
-  import GameListPage from '../../components/GameListPage.svelte'
+  import GameList from '../../components/GameList.svelte'
+  import ContentContainer from '../../components/Content/ContentContainer.svelte'
+  import ListTitle from '../../components/List/ListTitle.svelte'
   import type { Category } from '../../types'
 
   export let category: Category
 </script>
 
-<div>
-  <GameListPage name={category.categoryName} games={category.games} />
-</div>
+<ContentContainer>
+  <ListTitle>{category.categoryName}</ListTitle>
+  <GameList games={category.games} />
+</ContentContainer>

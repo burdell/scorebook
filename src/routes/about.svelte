@@ -1,5 +1,5 @@
 <script>
-  import ListPage from '../components/ListPage.svelte'
+  import ContentPage from '../components/Content/ContentPage.svelte'
 </script>
 
 <style>
@@ -24,7 +24,7 @@
   <title>About Scorebook</title>
 </svelte:head>
 
-<ListPage>
+<ContentPage>
   <div class="section">
     <h1>What is this?</h1>
     <div class="section-text">
@@ -68,31 +68,27 @@
       <ul>
         <li>
           <a target="_blank" href="https://github.com/burdell/retrosheet-parse">
-            retrosheet-parse (parses the raw Retrosheet files)
+            retrosheet-parse
           </a>
+          (parses the raw Retrosheet files)
         </li>
         <li>
           <a target="_blank" href="https://github.com/burdell/scorekeeper">
-            scorekeeper (interprets the parsed Retrosheet data)
+            scorekeeper
           </a>
+          (interprets the parsed Retrosheet data)
         </li>
         <li>
           <a target="_blank" href="https://github.com/burdell/scorebook">
-            scorebook (what you are looking at right now)
+            scorebook
           </a>
+          (what you are looking at right now)
         </li>
       </ul>
-      <div>
-        retrosheet-parse is currently available on npm as a separate library if
-        you have a desire to do somethign with Retrosheet using Node. Hopefully
-        scorekeeper will be one soon as well. It's written so that it can be
-        used for generic scorekeeping purposes (which is the original idea I had
-        before I discovered the Retrosheet project)
-      </div>
     </div>
   </div>
   <div class="section">
-    <h1>Why are there so many Braves games?!</h1>
+    <h1>Why are there so many Braves games?</h1>
     <div class="section-text">I'm a Braves fan.</div>
   </div>
-</ListPage>
+</ContentPage>

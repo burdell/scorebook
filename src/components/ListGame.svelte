@@ -19,20 +19,6 @@
 </script>
 
 <style>
-  .list-game {
-    box-shadow: 0px 0px 3px 0px var(--primary9);
-    padding: 1rem;
-    margin: 1rem;
-    background-color: var(--white9);
-    border-radius: 10px;
-    transition: 0.2s ease-in-out all;
-  }
-
-  .list-game:hover {
-    box-shadow: 0px 0px 5px 0px var(--primary9);
-    background-color: var(--gray8);
-  }
-
   .game-info {
     margin-bottom: 0.5rem;
   }
@@ -53,16 +39,14 @@
   }
 </style>
 
-<div class="list-game">
-  <a href="/games/{game.id}">
-    <div class="game-info">
-      <div class="game-teams">
-        {game.visitingTeam} ({game.visitingScore}) @ {game.homeTeam} ({game.homeScore})
-      </div>
-      <div class="game-time-location">
-        {formatDate(game.date)} | {game.location}
-      </div>
+<a href="/games/{game.id}">
+  <div class="game-info">
+    <div class="game-teams">
+      {game.visitingTeam} ({game.visitingScore}) @ {game.homeTeam} ({game.homeScore})
     </div>
-    <div class="game-description">{game.gameDescription}</div>
-  </a>
-</div>
+    <div class="game-time-location">
+      {formatDate(game.date)} | {game.location}
+    </div>
+  </div>
+  <div class="game-description">{game.gameDescription}</div>
+</a>

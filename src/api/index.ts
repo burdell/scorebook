@@ -1,4 +1,11 @@
-import type { List, ListGame, Category, Season, Game } from '../types'
+import type {
+  List,
+  ListGame,
+  Category,
+  Season,
+  Game,
+  SeriesGames,
+} from '../types'
 
 type ApiConfig = {
   fetch: SapperFetch
@@ -41,5 +48,5 @@ export async function getSeries(
 ) {
   const res = await fetch(`${gameApi}/series/${seriesId}.json`)
   const series = await res.json()
-  return series as ListGame[]
+  return series as SeriesGames
 }

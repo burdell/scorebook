@@ -1,19 +1,16 @@
 <script>
   import type { ListGame as ListGameType } from '../types'
   import ListGame from './ListGame.svelte'
+  import Content from './Content/Content.svelte'
+  import ListItem from './List/ListItem.svelte'
 
   export let games: ListGameType[]
 </script>
 
-<style>
-  .game-list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-  }
-</style>
-
-<div class="game-list">
+<Content>
   {#each games as game}
-    <ListGame {game} />
+    <ListItem>
+      <ListGame {game} />
+    </ListItem>
   {/each}
-</div>
+</Content>

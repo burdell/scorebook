@@ -18,6 +18,7 @@
   main {
     margin-top: var(--nav-offset);
     color: var(--gray1);
+    padding-bottom: 1rem;
   }
 </style>
 
