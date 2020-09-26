@@ -6,7 +6,7 @@
   --primary5: hsl(215, 64%, 46%);
   --primary6: hsl(215, 62%, 55%);
   --primary7: hsl(215, 62%, 71%);
-  --primary8: hsl(215, 60%, 82%);
+  --primary8: hsl(215, 60%, 86%);
   --primary9: hsl(215, 55%, 98%);
   --secondary1: hsl(91, 38%, 35%);
   --secondary2: hsl(91, 39%, 38%);
@@ -16,7 +16,7 @@
   --secondary6: hsl(91, 40%, 65%);
   --secondary7: hsl(91, 38%, 72%);
   --secondary8: hsl(91, 39%, 90%);
-  --secondary9: hsl(91, 36%, 96%);
+  --secondary9: hsl(91, 36%, 92%);
   --tertiary1: hsl(0, 72%, 22%);
   --tertiary2: hsl(0, 72%, 33%);
   --tertiary3: hsl(0, 73%, 40%);
@@ -24,13 +24,13 @@
   --tertiary5: hsl(0, 75%, 56%);
   --tertiary6: hsl(0, 75%, 65%);
   --tertiary7: hsl(0, 73%, 70%);
-  --tertiary8: hsl(0, 73%, 84%);
-  --tertiary9: hsl(0, 72%, 96%);
+  --tertiary8: hsl(0, 73%, 82%);
+  --tertiary9: hsl(0, 72%, 92%);
   --white1: hsl(54, 57%, 87%);
   --white3: hsl(52, 62%, 90%);
   --white5: hsl(54, 65%, 92%);
   --white7: hsl(54, 62%, 95%);
-  --white9: hsl(54, 45%, 98%);
+  --white9: hsl(54, 52%, 98%);
   --gray1: hsl(209, 10%, 32%);
   --gray2: hsl(207, 15%, 52%);
   --gray3: hsl(208, 15%, 58%);
@@ -38,6 +38,6 @@
   --gray5: hsl(208, 21%, 88%);
   --gray6: hsl(209, 15%, 90%);
   --gray7: hsl(207, 12%, 92%);
-  --gray8: hsl(208, 12%, 96%);
+  --gray8: hsl(208, 12%, 94%);
   --gray9: hsl(210, 16%, 98%);
 }

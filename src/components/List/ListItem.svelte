@@ -8,7 +8,7 @@
   }
 
   .list-item:hover {
-    background-color: var(--gray7);
+    background-color: var(--gray8);
   }
 
   .list-item:first-child {

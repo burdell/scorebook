@@ -54,7 +54,7 @@
 
 <nav>
   <a aria-current={segment === undefined ? 'page' : undefined} href=".">
-    <div class="site-title">scorekeeper</div>
+    <div class="site-title">scorebook</div>
   </a>
   <div class="links">
     <a href="/about">What is this?</a>

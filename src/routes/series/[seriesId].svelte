@@ -13,10 +13,8 @@
 </script>
 
 <script>
-  import GameList from '../../components/GameList.svelte'
+  import Series from '../../components/Series.svelte'
   import ContentContainer from '../../components/Content/ContentContainer.svelte'
-  import ListTitle from '../../components/List/ListTitle.svelte'
-  import { getMonthDayRange } from '../../utils/date'
 
   export let series: SeriesGames
 
@@ -26,9 +24,8 @@
 </script>
 
 <ContentContainer>
-  <ListTitle>
-    <div>{seriesDisplay}</div>
-    <div>{getMonthDayRange(series.seriesInfo, true)}</div>
-  </ListTitle>
-  <GameList games={series.games} />
+  <Series
+    display={seriesDisplay}
+    games={series.games}
+    info={series.seriesInfo} />
 </ContentContainer>

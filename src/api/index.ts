@@ -22,7 +22,7 @@ export async function getCategories(
   listName: string,
   { fetch, gameApi }: ApiConfig,
 ) {
-  const res = await fetch(`${gameApi}/lists/${listName}.json`)
+  const res = await fetch(`${gameApi}/categories/${listName}.json`)
   const list = await res.json()
   return list as Category
 }
@@ -33,13 +33,22 @@ export async function getGame(gameId: string, { fetch, gameApi }: ApiConfig) {
   return game as Game
 }
 
-export async function getSeason(
+export async function getSeriesList(
   seasonId: string,
   { fetch, gameApi }: ApiConfig,
 ) {
-  const res = await fetch(`${gameApi}/lists/${seasonId}.json`)
+  const res = await fetch(`${gameApi}/series-lists/${seasonId}.json`)
   const season = await res.json()
   return season as Season
+}
+
+export async function getSeriesGroup(
+  seriesGroupId: string,
+  { fetch, gameApi }: ApiConfig,
+) {
+  const res = await fetch(`${gameApi}/series-groups/${seriesGroupId}.json`)
+  const seriesGames = await res.json()
+  return seriesGames as SeriesGames[]
 }
 
 export async function getSeries(

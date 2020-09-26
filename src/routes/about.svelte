@@ -28,7 +28,7 @@
   <div class="section">
     <h1>What is this?</h1>
     <div class="section-text">
-      Scorekeeper is a project to programmatically generate
+      Scorebook is a project to programmatically generate
       <a
         target="_blank"
         href="https://en.wikipedia.org/wiki/Baseball_scorekeeping">
@@ -36,8 +36,7 @@
       </a>
       from
       <a target="_blank" href="https://www.retrosheet.org/">Retrosheet</a>
-      data. Retrosheet is a project that compiles play-by-play data for MLB
-      games.
+      data.
     </div>
   </div>
   <div class="section">

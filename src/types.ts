@@ -17,14 +17,16 @@ export type Season = {
   series: Series[]
 }
 
+export type SeriesInfo = {
+  seriesName: string | undefined
+  homeTeam: string
+  visitingTeam: string
+  startDate: string
+  endDate: string
+}
+
 export type SeriesGames = {
-  seriesInfo: {
-    seriesName: string | undefined
-    homeTeam: string
-    visitingTeam: string
-    startDate: string
-    endDate: string
-  }
+  seriesInfo: SeriesInfo
   games: ListGame[]
 }
 

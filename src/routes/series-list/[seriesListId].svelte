@@ -1,13 +1,13 @@
 <script context="module">
-  import { getSeason } from '../../api'
+  import { getSeriesList } from '../../api'
 
   export const preload: typeof SapperPreload = async function (page, session) {
-    const { seasonId } = page.params
-    const season = await getSeason(seasonId, {
+    const { seriesListId } = page.params
+    const seriesList = await getSeriesList(seriesListId, {
       fetch: this.fetch,
       gameApi: session.API_URL,
     })
-    return { season }
+    return { seriesList }
   }
 </script>
 
@@ -18,11 +18,10 @@
   import ListTitle from '../../components/List/ListTitle.svelte'
   import { getMonthDayRange } from '../../utils/date'
   import ContentContainer from '../../components/Content/ContentContainer.svelte'
-  import SeriesId from '../series/[seriesId].svelte'
 
-  export let season: Season
+  export let seriesList: Season
 
-  const targetTeam = season.targetTeam
+  const targetTeam = seriesList.targetTeam
   function getTeamDisplay(homeTeam: string, visitingTeam: string) {
     if (targetTeam === homeTeam) {
       return `vs ${visitingTeam}`
@@ -53,7 +52,7 @@
   const seriesByMonth: {
     [monthYear: string]: { monthYear: string; series: Series[] }
   } = {}
-  season.series.forEach((s) => {
+  seriesList.series.forEach((s) => {
     const monthYear = new Date(s.startDate).toLocaleDateString('en', {
       month: 'long',
       year: 'numeric',
@@ -84,7 +83,7 @@
 </style>
 
 <svelte:head>
-  <title>{season.name}</title>
+  <title>{seriesList.name}</title>
 </svelte:head>
 
 <ContentContainer>

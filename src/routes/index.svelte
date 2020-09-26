@@ -15,6 +15,12 @@
   import ContentPage from '../components/Content/ContentPage.svelte'
   import ListItem from '../components/List/ListItem.svelte'
 
+  function getListUrlType(listType: string) {
+    if (listType === 'series') return 'series-list'
+
+    return listType
+  }
+
   export let lists: ListType[] = []
   $: lists = lists
 </script>
@@ -42,7 +48,7 @@
 <ContentPage>
   {#each lists as list}
     <ListItem>
-      <a href="/{list.type}/{list.listId}">
+      <a href="/{getListUrlType(list.type)}/{list.listId}">
         <div>
           <div class="list-name">{list.name}</div>
           <div class="list-description">{list.description}</div>
