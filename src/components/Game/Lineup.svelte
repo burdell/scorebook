@@ -1,11 +1,10 @@
 <script>
-  import ColumnHeader from './ColumnHeader.svelte'
-  import ColumnItem from './ColumnItem.svelte'
-  import type { Lineup, FieldPosition } from '../types'
+  import type { Lineup, FieldPosition } from '../../types'
+  import ColumnHeader from '../Grid/ColumnHeader.svelte'
+  import ColumnItem from '../Grid/ColumnItem.svelte'
 
   export let lineup: Lineup
   export let teamName: string
-  export let changeTeam: () => void
 
   function positionDisplay(positionNumber: FieldPosition) {
     if (positionNumber === 11) return 'PH'
@@ -19,33 +18,24 @@
 <style>
   .lineup {
     flex: 2;
-    border-right: 1px solid #000;
+    border-right: 1px solid var(--gridColor);
   }
 
   .lineup-player {
     display: flex;
     padding: 0 0.5rem;
-    border-bottom: 1px dashed #a2a2a2;
+    border-bottom: 1px dashed var(--gridColor);
     font-size: 0.8rem;
   }
 
   .position {
     margin-right: 0.5rem;
   }
-
-  button {
-    background: none;
-    border: none;
-    color: blue;
-    text-decoration: underline;
-    cursor: pointer;
-  }
 </style>
 
 <div class="lineup">
   <ColumnHeader>
     <div>{teamName}</div>
-    <button on:click={changeTeam}>(Switch)</button>
   </ColumnHeader>
   {#each lineup as lineupEntry}
     <ColumnItem>

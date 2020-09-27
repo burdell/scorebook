@@ -1,7 +1,7 @@
 <script>
   import AtBat from './AtBat.svelte'
-  import ColumnHeader from './ColumnHeader.svelte'
-  import type { AtBat as AtBatType } from '../types'
+  import ColumnHeader from '../Grid/ColumnHeader.svelte'
+  import type { AtBat as AtBatType } from '../../types'
 
   export let gameplay: AtBatType[][]
 
@@ -35,7 +35,7 @@
 
 <style>
   .gameplay {
-    flex: 8;
+    flex: 10;
   }
 
   .innings {

@@ -1,5 +1,5 @@
 <script>
-  import type { AtBatResult, BaseResult } from '../types'
+  import type { AtBatResult, BaseResult } from '../../types'
 
   export let result: AtBatResult
   export let bases: BaseResult[]
@@ -35,6 +35,7 @@
 
 <style>
   .result-container {
+    --basepathColor: var(--gray2);
     height: 100%;
     width: 100%;
     display: flex;
@@ -50,7 +51,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #e2e2e2;
+    border: 1px solid var(--gray5);
   }
 
   .result-display {
@@ -83,23 +84,23 @@
   }
 
   .reached-1 {
-    border-right: 1px solid black;
+    border-right: 1px solid var(--basepathColor);
   }
 
   .reached-2 {
-    border-right: 1px solid black;
-    border-top: 1px solid black;
+    border-right: 1px solid var(--basepathColor);
+    border-top: 1px solid var(--basepathColor);
   }
 
   .reached-3 {
-    border-right: 1px solid black;
-    border-top: 1px solid black;
-    border-left: 1px solid black;
+    border-right: 1px solid var(--basepathColor);
+    border-top: 1px solid var(--basepathColor);
+    border-left: 1px solid var(--basepathColor);
   }
 
   .reached-4 {
-    border: 1px solid black;
-    background-color: #e1e1e1;
+    border: 1px solid var(--basepathColor);
+    background-color: var(--gray6);
   }
 
   .looking-strikeout {

@@ -20,7 +20,7 @@
 
 <style>
   .game-info {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.7rem;
   }
 
   .game-teams {
@@ -34,6 +34,10 @@
     font-style: italic;
   }
 
+  .game-date {
+    color: var(--gray3);
+  }
+
   a {
     text-decoration: none;
   }
@@ -41,11 +45,9 @@
 
 <a href="/games/{game.id}">
   <div class="game-info">
+    <div class="game-date">{formatDate(game.date)}</div>
     <div class="game-teams">
       {game.visitingTeam} ({game.visitingScore}) @ {game.homeTeam} ({game.homeScore})
-    </div>
-    <div class="game-time-location">
-      {formatDate(game.date)} | {game.location}
     </div>
   </div>
   <div class="game-description">{game.gameDescription}</div>

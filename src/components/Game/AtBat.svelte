@@ -1,8 +1,8 @@
 <script>
-  import type { AtBat } from '../types'
+  import type { AtBat } from '../../types'
 
   import Count from './Count.svelte'
-  import ColumnItem from './ColumnItem.svelte'
+  import ColumnItem from '../Grid/ColumnItem.svelte'
   import Basepaths from './Basepaths.svelte'
 
   export let atBat: AtBat
@@ -18,12 +18,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-right: 1px solid black;
+    border-right: 1px solid var(--gridColor);
     height: 100%;
+    font-family: 'Inconsolata', sans-serif;
   }
 
   .out {
-    background-color: rgb(244, 154, 154);
+    background-color: var(--tertiary8);
     border-radius: 50%;
     height: 7px;
     width: 7px;

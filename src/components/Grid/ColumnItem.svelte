@@ -3,7 +3,7 @@
     min-height: 80px;
     min-width: 80px;
     width: 100%;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--gridColor);
   }
 </style>
 

@@ -1,6 +1,7 @@
 :root {
   --nav-offset: 70px;
   --borderRadius: 10px;
+  --gridColor: var(--gray4);
 }
 
 body {

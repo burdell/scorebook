@@ -16,7 +16,7 @@
   }
 
   .count-item {
-    border: 1px solid #6a6a6a;
+    border: 1px solid var(--gray3);
     width: 5px;
     height: 5px;
     margin-right: 0.1rem;
@@ -25,7 +25,7 @@
   }
 
   .filled {
-    background-color: #acacac;
+    background-color: var(--gray4);
   }
 
   .count-display {
