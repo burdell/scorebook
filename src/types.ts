@@ -1,4 +1,10 @@
 /*** EXPORTED TYPES */
+export type LineupEntry = {
+  player: LineupPlayer
+  position: FieldPosition
+  inning: number
+}
+
 export type Series = {
   startDate: string
   endDate: string
@@ -118,12 +124,6 @@ type GameInfo = {
 export type LineupPlayer = {
   name: string
   number?: number | undefined
-}
-
-type LineupEntry = {
-  player: LineupPlayer
-  position: FieldPosition
-  inning: number
 }
 
 type Base = 1 | 2 | 3 | 4

@@ -3,6 +3,7 @@
   import ColumnHeader from '../Grid/ColumnHeader.svelte'
   import ColumnItem from '../Grid/ColumnItem.svelte'
   import LineupPlayer from './LineupPlayer.svelte'
+  import LineupSpot from './LineupSpot.svelte'
 
   export let lineup: Lineup
   export let teamName: string
@@ -20,10 +21,6 @@
   .lineup {
     border-right: 1px solid var(--gridColor);
   }
-
-  .position {
-    margin-right: 0.5rem;
-  }
 </style>
 
 <div class="lineup">
@@ -32,17 +29,7 @@
   </ColumnHeader>
   {#each lineup as lineupEntry}
     <ColumnItem>
-      <div class="lineup-spot">
-        {#each lineupEntry as { position, player, inning }}
-          <LineupPlayer>
-            <div class="position">{positionDisplay(position)}</div>
-            <div>{player.name}</div>
-            {#if inning > 1}
-              <div>&nbsp;({inning})</div>
-            {/if}
-          </LineupPlayer>
-        {/each}
-      </div>
+      <LineupSpot {lineupEntry} />
     </ColumnItem>
   {/each}
 </div>
