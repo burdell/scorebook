@@ -10,6 +10,7 @@
   .scoring-summary {
     display: flex;
     align-items: center;
+    font-size: 1rem;
   }
 
   .team-name {
@@ -24,7 +25,7 @@
   }
 
   .total {
-    font-weight: 800;
+    font-weight: 1000;
   }
 </style>
 

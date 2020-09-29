@@ -1,7 +1,8 @@
 <script>
-  import type { Lineup, FieldPosition } from '../../types'
+  import type { Lineup, FieldPosition, PitcherEntry } from '../../types'
   import ColumnHeader from '../Grid/ColumnHeader.svelte'
   import ColumnItem from '../Grid/ColumnItem.svelte'
+  import LineupPlayer from './LineupPlayer.svelte'
 
   export let lineup: Lineup
   export let teamName: string
@@ -17,15 +18,7 @@
 
 <style>
   .lineup {
-    flex: 2;
     border-right: 1px solid var(--gridColor);
-  }
-
-  .lineup-player {
-    display: flex;
-    padding: 0 0.5rem;
-    border-bottom: 1px dashed var(--gridColor);
-    font-size: 0.8rem;
   }
 
   .position {
@@ -41,13 +34,13 @@
     <ColumnItem>
       <div class="lineup-spot">
         {#each lineupEntry as { position, player, inning }}
-          <div class="lineup-player">
+          <LineupPlayer>
             <div class="position">{positionDisplay(position)}</div>
             <div>{player.name}</div>
             {#if inning > 1}
               <div>&nbsp;({inning})</div>
             {/if}
-          </div>
+          </LineupPlayer>
         {/each}
       </div>
     </ColumnItem>

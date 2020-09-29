@@ -34,17 +34,12 @@
 </script>
 
 <style>
-  .gameplay {
-    flex: 10;
-  }
-
   .innings {
     display: flex;
     width: 100%;
     justify-content: space-between;
     box-sizing: border-box;
-    padding-right: 1rem;
-    height: calc(100vh - 120px);
+    padding-bottom: 0.3rem;
   }
 
   .inning {
@@ -55,15 +50,13 @@
   }
 </style>
 
-<div class="gameplay">
-  <div class="innings">
-    {#each inningList as inning}
-      <div class="inning">
-        <ColumnHeader>{inning.inningDisplay}</ColumnHeader>
-        {#each inning.atBats as atBat}
-          <AtBat {atBat} />
-        {/each}
-      </div>
-    {/each}
-  </div>
+<div class="innings">
+  {#each inningList as inning}
+    <div class="inning">
+      <ColumnHeader>{inning.inningDisplay}</ColumnHeader>
+      {#each inning.atBats as atBat}
+        <AtBat {atBat} />
+      {/each}
+    </div>
+  {/each}
 </div>

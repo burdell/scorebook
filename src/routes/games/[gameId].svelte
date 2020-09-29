@@ -14,10 +14,11 @@
 
 <script>
   import type { Game } from '../../types'
-  import Content from '../../components/Content/Content.svelte'
   import Lineup from '../../components/Game/Lineup.svelte'
   import Gameplay from '../../components/Game/Gameplay.svelte'
   import GameStats from '../../components/GameStats.svelte'
+  import LineupPlayer from '../../components/Game/LineupPlayer.svelte'
+  import ColumnHeader from '../../components/Grid/ColumnHeader.svelte'
 
   export let game: Game
 
@@ -60,7 +61,6 @@
   }
 
   .gameplay-container {
-    border-radius: 0 10px 10px 10px;
     background-color: var(--white9);
   }
 
@@ -68,14 +68,11 @@
     background-color: var(--white9);
     padding: 0.5rem 1rem;
     border-radius: 10px 10px 0 0;
-    display: inline-flex;
+    border-bottom: 1px solid var(--gray4);
+    display: flex;
+    justify-content: space-between;
     margin: 0 auto;
-  }
-
-  .game-info > div:not(:last-child):after {
-    content: '|';
-    color: var(--gray5);
-    padding: 0 0.5rem;
+    background-color: var(--gray9);
   }
 
   .game-info button {
@@ -90,7 +87,31 @@
   }
 
   .stats {
+    display: flex;
+  }
+
+  .left-column {
+    flex: 2;
+  }
+  .main-content {
+    flex: 10;
+    text-align: right;
+  }
+
+  .pitchers,
+  .scoring {
     background-color: var(--white9);
+    border-radius: 0 0 10px 10px;
+  }
+
+  .scoring {
+    display: inline-block;
+  }
+
+  .pitcher-entry {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
   }
 </style>
 
@@ -112,11 +133,33 @@
   </div>
   <div class="gameplay-container">
     <div class="gameplay">
-      <Lineup lineup={shownLineup} teamName={shownTeam} />
-      <Gameplay gameplay={shownGameplay} />
+      <div class="left-column">
+        <Lineup lineup={shownLineup} teamName={shownTeam} />
+      </div>
+      <div class="main-content">
+        <Gameplay gameplay={shownGameplay} />
+      </div>
     </div>
   </div>
   <div class="stats">
-    <GameStats {game} {shownPitchers} />
+    <div class="pitchers left-column">
+      <ColumnHeader>Pitchers</ColumnHeader>
+      {#each shownPitchers as pitcher}
+        <LineupPlayer>
+          <div class="pitcher-entry">
+            <div>
+              {pitcher.player.name}
+              {pitcher.player.type === 'sub' ? `(${pitcher.player.inningEntered})` : ''}
+            </div>
+            <div>{pitcher.stats.er} ER</div>
+          </div>
+        </LineupPlayer>
+      {/each}
+    </div>
+    <div class="main-content">
+      <div class="scoring">
+        <GameStats {game} />
+      </div>
+    </div>
   </div>
 </div>
