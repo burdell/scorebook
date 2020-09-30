@@ -8,11 +8,34 @@
   const shownPlayerCount = 4
 
   function positionDisplay(positionNumber: FieldPosition) {
-    if (positionNumber === 11) return 'PH'
-    if (positionNumber === 10) return 'DH'
-    if (positionNumber === 12) return 'PR'
-
-    return positionNumber
+    switch (positionNumber) {
+      case 1:
+        return 'P'
+      case 2:
+        return 'C'
+      case 3:
+        return '1B'
+      case 4:
+        return '2B'
+      case 5:
+        return '3B'
+      case 6:
+        return 'SS'
+      case 7:
+        return 'LF'
+      case 8:
+        return 'CF'
+      case 9:
+        return 'RF'
+      case 11:
+        return 'PH'
+      case 10:
+        return 'DH'
+      case 12:
+        return 'PR'
+      default:
+        return positionNumber
+    }
   }
 
   function scrollUp() {
