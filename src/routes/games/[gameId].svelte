@@ -54,6 +54,9 @@
 <style>
   .game-container {
     padding: 0.5rem;
+    display: inline-block;
+    min-width: 100%;
+    box-sizing: border-box;
   }
 
   .gameplay {
@@ -92,6 +95,7 @@
 
   .left-column {
     flex: 2;
+    min-width: 175px;
   }
   .main-content {
     flex: 10;
