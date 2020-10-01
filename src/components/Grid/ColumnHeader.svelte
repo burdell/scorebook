@@ -1,7 +1,7 @@
 <style>
   .column-header {
     text-align: center;
-    font-weight: 600;
+    font-weight: 800;
     border-bottom: 1px solid var(--gridColor);
 
     width: 100%;
@@ -9,6 +9,7 @@
     justify-content: center;
     position: relative;
     padding: 0.1rem 0;
+    font-size: 0.9rem;
   }
 </style>
 

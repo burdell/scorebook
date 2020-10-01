@@ -32,7 +32,7 @@
     font-size: 2rem;
     padding: 0.5rem 0;
     font-weight: 300;
-    font-family: 'Arvo', cursive;
+    font-family: 'Arvo', serif;
   }
 
   .links {
