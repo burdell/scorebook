@@ -18,6 +18,10 @@
   .section-text {
     padding-left: 1rem;
   }
+
+  h1 {
+    font-size: 1.4rem;
+  }
 </style>
 
 <svelte:head>

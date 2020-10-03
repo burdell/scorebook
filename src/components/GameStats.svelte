@@ -1,5 +1,5 @@
 <script>
-  import type { Game, PitcherEntry } from '../types'
+  import type { Game } from '../types'
 
   import ScoringSummary from './ScoringSummary.svelte'
 

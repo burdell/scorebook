@@ -2,7 +2,7 @@
   .list-item {
     font-size: 1rem;
     transition: 0.2s ease-in-out all;
-    padding: 1rem 2rem;
+    padding: 1rem;
     display: block;
     background-color: var(--white9);
   }

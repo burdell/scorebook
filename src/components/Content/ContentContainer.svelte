@@ -4,7 +4,7 @@
     margin: 0 auto;
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 850px) {
     .content-container {
       width: 90%;
     }

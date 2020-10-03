@@ -19,36 +19,58 @@
 </script>
 
 <style>
-  .game-info {
-    margin-bottom: 0.7rem;
+  .list-game {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
   }
 
-  .game-teams {
-    font-size: 1.1rem;
-    font-weight: 800;
+  .game-info {
+    padding: 0.5rem 0;
+    margin-bottom: 0.7rem;
+    flex: 3;
   }
 
   .game-description {
     color: var(--gray3);
-    font-size: 0.9rem;
+    font-size: 0.9em;
+    text-align: center;
+    flex: 2;
+    padding: 1rem 0.5rem;
+  }
+
+  .game-teams {
+    font-size: 1.2em;
+    font-weight: 800;
   }
 
   .game-date {
-    font-size: 0.8rem;
+    font-size: 1rem;
     color: var(--gray3);
   }
 
   a {
     text-decoration: none;
   }
+
+  @media (max-width: 1100px) {
+    .list-game {
+      font-size: 0.9rem;
+    }
+  }
 </style>
 
 <a href="/games/{game.id}">
-  <div class="game-info">
-    <div class="game-date">{formatDate(game.date)}</div>
-    <div class="game-teams">
-      {game.visitingTeam} ({game.visitingScore}) @ {game.homeTeam} ({game.homeScore})
+  <div class="list-game">
+    <div class="game-info">
+      <div class="game-date">{formatDate(game.date)}</div>
+      <div class="game-teams">
+        <div>{game.visitingTeam} {game.visitingScore}</div>
+        <div>{game.homeTeam} {game.homeScore}</div>
+      </div>
     </div>
+    {#if game.gameDescription}
+      <div class="game-description">{game.gameDescription}</div>
+    {/if}
   </div>
-  <div class="game-description">{game.gameDescription}</div>
 </a>
