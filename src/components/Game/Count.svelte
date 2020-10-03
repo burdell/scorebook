@@ -17,8 +17,8 @@
 
   .count-item {
     border: 1px solid var(--gray3);
-    width: 5px;
-    height: 5px;
+    width: 0.3rem;
+    height: 0.3rem;
     margin-right: 0.1rem;
     margin-bottom: 0.2rem;
     border-radius: 50%;

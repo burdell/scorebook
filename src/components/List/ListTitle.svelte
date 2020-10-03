@@ -8,6 +8,12 @@
     display: flex;
     justify-content: space-between;
   }
+
+  @media (max-width: 768px) {
+    .list-title {
+      font-size: 1rem;
+    }
+  }
 </style>
 
 <div class="list-title">

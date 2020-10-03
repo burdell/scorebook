@@ -1,7 +1,8 @@
 :root {
-  --nav-offset: 70px;
+  --nav-offset: 55px;
   --borderRadius: 10px;
   --gridColor: var(--gray4);
+  --minGrid: 6rem;
 }
 
 body {
@@ -41,8 +42,8 @@ code {
   border-radius: 2px;
 }
 
-@media (min-width: 400px) {
-  body {
-    font-size: 16px;
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
   }
 }

@@ -1,6 +1,6 @@
 <style>
   .column-item {
-    height: 80px;
+    height: 5rem;
     width: 100%;
     border-bottom: 1px solid var(--gridColor);
   }

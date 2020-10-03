@@ -68,13 +68,13 @@
 
 <style>
   .series-info {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     font-weight: 800;
   }
 
   .series-date {
     font-size: 0.8rem;
-    color: #b0b0b0;
+    color: var(--gray3);
   }
 
   a {

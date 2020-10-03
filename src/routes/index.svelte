@@ -27,13 +27,13 @@
 
 <style>
   .list-name {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 800;
   }
 
   .list-description {
-    font-size: 0.8rem;
-    color: #b0b0b0;
+    font-size: 0.9rem;
+    color: var(--gray3);
   }
 
   a {

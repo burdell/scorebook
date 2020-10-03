@@ -24,17 +24,17 @@
   }
 
   .game-teams {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 800;
   }
 
   .game-description {
-    color: #b0b0b0;
+    color: var(--gray3);
     font-size: 0.9rem;
-    font-style: italic;
   }
 
   .game-date {
+    font-size: 0.8rem;
     color: var(--gray3);
   }
 

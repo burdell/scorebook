@@ -44,8 +44,8 @@
   }
 
   .basepaths {
-    height: 35px;
-    width: 35px;
+    height: 2.1rem;
+    width: 2.1rem;
     transform: rotate(45deg);
     top: 50%;
     display: flex;
@@ -68,19 +68,19 @@
   }
 
   .base-result-1 {
-    transform: rotate(-45deg) translateX(33px);
+    transform: rotate(-45deg) translateX(2rem);
   }
 
   .base-result-2 {
-    transform: rotate(-45deg) translateY(-31px);
+    transform: rotate(-45deg) translateY(-1.9rem);
   }
 
   .base-result-3 {
-    transform: rotate(-45deg) translateX(-33px);
+    transform: rotate(-45deg) translateX(-2rem);
   }
 
   .base-result-4 {
-    transform: rotate(-45deg) translateY(33px);
+    transform: rotate(-45deg) translateY(2rem);
   }
 
   .reached-1 {

@@ -21,14 +21,14 @@
     border-right: 1px solid var(--gridColor);
     height: 100%;
     font-family: 'Inconsolata', sans-serif;
-    min-width: 90px;
+    min-width: var(--minGrid);
   }
 
   .out {
     background-color: var(--tertiary8);
     border-radius: 50%;
-    height: 7px;
-    width: 7px;
+    height: 0.4rem;
+    width: 0.4rem;
     position: absolute;
     top: 5px;
     right: 5px;
