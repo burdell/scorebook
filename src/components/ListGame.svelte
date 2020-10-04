@@ -22,12 +22,12 @@
   .list-game {
     display: flex;
     align-items: center;
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   .game-info {
-    padding: 0.5rem 1rem;
-    margin-bottom: 0.7rem;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
     flex: 3;
   }
 
@@ -36,7 +36,7 @@
     font-size: 0.9em;
     text-align: center;
     flex: 2;
-    padding: 1rem 0.5rem;
+    padding: 0.5rem;
   }
 
   .game-teams {
@@ -55,7 +55,13 @@
 
   @media (max-width: 768px) {
     .list-game {
+      font-size: 1.1rem;
       flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .game-description {
+      text-align: left;
     }
   }
 </style>

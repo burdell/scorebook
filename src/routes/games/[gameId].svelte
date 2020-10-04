@@ -16,7 +16,7 @@
   import type { Game } from '../../types'
   import Lineup from '../../components/Game/Lineup.svelte'
   import Gameplay from '../../components/Game/Gameplay.svelte'
-  import GameStats from '../../components/GameStats.svelte'
+  import GameStats from '../../components/GameStats/GameStats.svelte'
   import LineupPlayer from '../../components/Game/LineupPlayer.svelte'
   import ColumnHeader from '../../components/Grid/ColumnHeader.svelte'
 

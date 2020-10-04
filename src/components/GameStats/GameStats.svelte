@@ -1,5 +1,5 @@
 <script>
-  import type { Game } from '../types'
+  import type { Game } from '../../types'
 
   import ScoringSummary from './ScoringSummary.svelte'
 
@@ -16,12 +16,7 @@
   .game-stats {
     display: flex;
     justify-content: space-around;
-    padding: 0.5rem 1rem;
-  }
-
-  .scoring {
-    border: 1px solid black;
-    padding: 0.3rem;
+    padding-top: 0.5rem;
   }
 </style>
 

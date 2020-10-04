@@ -76,15 +76,19 @@
   }
 
   button {
-    box-sizing: border-box;
     position: absolute;
     right: 0;
-    border-radius: 3px;
+    border-radius: 50%;
+    width: 1.3rem;
+    height: 1.3rem;
     border: none;
     border: 1px solid var(--secondary6);
     background-color: var(--secondary9);
     transition: all 0.2s ease-in-out;
-    -webkit-appearance: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
   }
 
   .button-control {
