@@ -60,14 +60,35 @@
     margin-right: 0.5rem;
   }
 
+  .up {
+    top: -1px;
+  }
+
+  .down {
+    bottom: -1px;
+  }
+
+  .lineup-player {
+    border-bottom: 1px dashed var(--gray4);
+  }
+  .lineup-player:nth-child(4) {
+    border-bottom: none;
+  }
+
   button {
+    box-sizing: border-box;
     position: absolute;
-    right: 0px;
+    right: 0;
     border-radius: 3px;
     border: none;
     border: 1px solid var(--secondary6);
     background-color: var(--secondary9);
     transition: all 0.2s ease-in-out;
+    -webkit-appearance: none;
+  }
+
+  .button-control {
+    padding: 0.2rem 0;
   }
 
   button:disabled {
@@ -79,37 +100,37 @@
     border: 1px solid var(--secondary1);
     outline: none;
   }
-
-  .up {
-    top: 0px;
-  }
-
-  .down {
-    bottom: 0px;
-  }
 </style>
 
 <div class="lineup-spot">
   {#if showControls}
     <button disabled={offset === 0} on:click={() => scrollUp()} class="up">
-      <Up />
+      <div class="button-control">
+        <Up />
+      </div>
     </button>
   {/if}
-  {#each shownPlayers as { position, player, inning }}
-    <LineupPlayer>
-      <div class="position">{positionDisplay(position)}</div>
-      <div>{player.name}</div>
-      {#if inning > 1}
-        <div>&nbsp;({inning})</div>
-      {/if}
-    </LineupPlayer>
-  {/each}
+  <div>
+    {#each shownPlayers as { position, player, inning }}
+      <div class="lineup-player">
+        <LineupPlayer>
+          <div class="position">{positionDisplay(position)}</div>
+          <div>{player.name}</div>
+          {#if inning > 1}
+            <div>&nbsp;({inning})</div>
+          {/if}
+        </LineupPlayer>
+      </div>
+    {/each}
+  </div>
   {#if showControls}
     <button
       disabled={offset + shownPlayerCount >= lineupEntry.length}
       on:click={() => scrollDown()}
       class="down">
-      <Down />
+      <div class="button-control">
+        <Down />
+      </div>
     </button>
   {/if}
 </div>

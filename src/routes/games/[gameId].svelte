@@ -117,6 +117,13 @@
     justify-content: space-between;
     width: 100%;
   }
+
+  .pitcher-container {
+    border-bottom: 1px dashed var(--gray4);
+  }
+  .pitcher-container:last-child {
+    border-bottom: none;
+  }
 </style>
 
 <svelte:head>
@@ -149,15 +156,17 @@
     <div class="pitchers left-column">
       <ColumnHeader>Pitchers</ColumnHeader>
       {#each shownPitchers as pitcher}
-        <LineupPlayer>
-          <div class="pitcher-entry">
-            <div>
-              {pitcher.player.name}
-              {pitcher.player.type === 'sub' ? `(${pitcher.player.inningEntered})` : ''}
+        <div class="pitcher-container">
+          <LineupPlayer>
+            <div class="pitcher-entry">
+              <div>
+                {pitcher.player.name}
+                {pitcher.player.type === 'sub' ? `(${pitcher.player.inningEntered})` : ''}
+              </div>
+              <div>{pitcher.stats.er} ER</div>
             </div>
-            <div>{pitcher.stats.er} ER</div>
-          </div>
-        </LineupPlayer>
+          </LineupPlayer>
+        </div>
       {/each}
     </div>
     <div class="main-content">

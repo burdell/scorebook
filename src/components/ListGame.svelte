@@ -26,7 +26,7 @@
   }
 
   .game-info {
-    padding: 0.5rem 0;
+    padding: 0.5rem 1rem;
     margin-bottom: 0.7rem;
     flex: 3;
   }
@@ -45,7 +45,7 @@
   }
 
   .game-date {
-    font-size: 1rem;
+    font-size: 0.9em;
     color: var(--gray3);
   }
 
@@ -53,9 +53,9 @@
     text-decoration: none;
   }
 
-  @media (max-width: 1100px) {
+  @media (max-width: 768px) {
     .list-game {
-      font-size: 0.9rem;
+      flex-direction: column;
     }
   }
 </style>
