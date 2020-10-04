@@ -90,13 +90,8 @@
     transition: 0.2s all ease-in-out;
   }
 
-  .game-info button:hover {
-    font-weight: 900;
-  }
-
   .shown-team {
     text-decoration: underline;
-    font-weight: 900;
   }
 
   .stats {
