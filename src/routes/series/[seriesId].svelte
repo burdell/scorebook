@@ -23,6 +23,10 @@
     `${series.seriesInfo.visitingTeam} @ ${series.seriesInfo.homeTeam}`
 </script>
 
+<svelte:head>
+  <title>Scorebook | {seriesDisplay}</title>
+</svelte:head>
+
 <ContentContainer>
   <Series
     display={seriesDisplay}

@@ -83,7 +83,7 @@
 </style>
 
 <svelte:head>
-  <title>{seriesList.name}</title>
+  <title>Scorekeeper | {seriesList.name}</title>
 </svelte:head>
 
 <ContentContainer>

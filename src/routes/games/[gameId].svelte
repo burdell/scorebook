@@ -132,7 +132,7 @@
 </style>
 
 <svelte:head>
-  <title>{visitingTeamName} @ {homeTeamName} | {game.gameInfo.date}</title>
+  <title>Scorebook | {visitingTeamName} @ {homeTeamName}</title>
 </svelte:head>
 
 <div class="game-container">

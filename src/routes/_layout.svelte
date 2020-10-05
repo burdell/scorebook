@@ -22,10 +22,6 @@
   }
 </style>
 
-<svelte:head>
-  <title>{path ? path.charAt(0).toUpperCase() + path.slice(1) : 'Index'}</title>
-</svelte:head>
-
 <Nav {segment} />
 
 <main>

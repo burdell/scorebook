@@ -21,6 +21,10 @@
   export let category: Category
 </script>
 
+<svelte:head>
+  <title>Scorebook | {category.categoryName}</title>
+</svelte:head>
+
 <ContentContainer>
   <ListTitle>{category.categoryName}</ListTitle>
   <GameList games={category.games} />

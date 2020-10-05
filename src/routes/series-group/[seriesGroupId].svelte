@@ -26,6 +26,10 @@
   }
 </script>
 
+<svelte:head>
+  <title>Scorekeeper</title>
+</svelte:head>
+
 <ContentContainer>
   {#each seriesGroup as series}
     <Series
