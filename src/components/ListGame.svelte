@@ -55,7 +55,6 @@
 
   @media (max-width: 768px) {
     .list-game {
-      font-size: 1.1rem;
       flex-direction: column;
       align-items: flex-start;
     }
