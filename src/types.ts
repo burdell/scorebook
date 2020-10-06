@@ -118,7 +118,7 @@ type GameInfo = {
   visitingTeam: Team
   date: string
   location: string
-  startTime: string
+  startTime: string | undefined
   id: string
 }
 export type LineupPlayer = {

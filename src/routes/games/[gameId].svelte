@@ -28,6 +28,14 @@
   const visitingTeamName = visitingTeam.fullName
   const homeTeamName = homeTeam.fullName
 
+  function getTimeString() {
+    if (!game.gameInfo.startTime) {
+      return ''
+    }
+
+    return ` @ ${game.gameInfo.startTime}`
+  }
+
   function formatDate(date: string) {
     return new Date(date).toLocaleDateString('en', {
       month: 'short',
@@ -150,7 +158,7 @@
         {homeTeamName}
       </button>
     </div>
-    <div>{formatDate(game.gameInfo.date)} @ {game.gameInfo.startTime}</div>
+    <div>{formatDate(game.gameInfo.date)}{getTimeString()}</div>
     <div>{game.gameInfo.location}</div>
   </div>
   <div class="gameplay-container">
