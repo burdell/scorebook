@@ -84,6 +84,7 @@
     justify-content: space-between;
     margin: 0 auto;
     background-color: var(--gray9);
+    font-size: 0.9rem;
   }
 
   .game-info button {
