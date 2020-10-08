@@ -149,12 +149,14 @@
     <div>
       <button
         on:click={() => changeTeam(visitingTeamName)}
+        type="button"
         class={showingVisiting ? 'shown-team' : ''}>
         {visitingTeamName}
       </button>
       @
       <button
         on:click={() => changeTeam(homeTeamName)}
+        type="button"
         class={!showingVisiting ? 'shown-team' : ''}>
         {homeTeamName}
       </button>
