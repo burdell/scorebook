@@ -1,5 +1,5 @@
 :root {
-  --nav-offset: 55px;
+  --nav-offset: 3.4rem;
   --borderRadius: 10px;
   --gridColor: var(--gray4);
   --minGrid: 6rem;

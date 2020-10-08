@@ -2,17 +2,11 @@
   .list-title {
     margin: 0.5rem 0;
     padding: 1rem 0 0 0;
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: var(--primary8);
     font-weight: 400;
     display: flex;
     justify-content: space-between;
-  }
-
-  @media (max-width: 768px) {
-    .list-title {
-      font-size: 1rem;
-    }
   }
 </style>
 

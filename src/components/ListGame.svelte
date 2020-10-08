@@ -22,7 +22,7 @@
   .list-game {
     display: flex;
     align-items: center;
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 
   .game-info {
@@ -32,7 +32,7 @@
   }
 
   .game-description {
-    color: var(--gray3);
+    color: var(--gray2);
     font-size: 0.9em;
     text-align: center;
     flex: 2;
