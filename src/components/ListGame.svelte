@@ -52,7 +52,7 @@
     text-decoration: none;
   }
 
-  @media (max-width: 768px) {
+  @media only screen and (max-width: 768px) and (orientation: portrait) {
     .list-game {
       flex-direction: column;
       align-items: flex-start;
