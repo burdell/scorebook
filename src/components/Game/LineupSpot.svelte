@@ -5,7 +5,7 @@
   import Down from '../Icons/Down.svelte'
 
   export let lineupEntry: LineupEntry[]
-  const shownPlayerCount = 4
+  const shownPlayerCount = 3
 
   function positionDisplay(positionNumber: FieldPosition) {
     switch (positionNumber) {
@@ -54,6 +54,7 @@
 <style>
   .lineup-spot {
     position: relative;
+    box-sizing: border-box;
   }
 
   .position {
@@ -69,10 +70,10 @@
   }
 
   .lineup-player {
-    border-bottom: 1px dashed var(--gray4);
+    border-bottom: 1px dashed var(--gray5);
   }
-  .lineup-player:nth-child(4) {
-    border-bottom: none;
+  .lineup-player:nth-child(3) {
+    border-bottom: 1px dashed transparent;
   }
 
   button {
