@@ -66,7 +66,7 @@
   }
 
   .down {
-    bottom: 0.2rem;
+    bottom: 0.3rem;
   }
 
   .lineup-player {
