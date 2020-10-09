@@ -111,7 +111,7 @@
     <button
       type="button"
       disabled={offset === 0}
-      on:click={() => scrollUp()}
+      on:click={scrollUp}
       class="up">
       <div class="button-control">
         <Up />
@@ -135,7 +135,7 @@
     <button
       type="button"
       disabled={offset + shownPlayerCount >= lineupEntry.length}
-      on:click={() => scrollDown()}
+      on:click={scrollDown}
       class="down">
       <div class="button-control">
         <Down />

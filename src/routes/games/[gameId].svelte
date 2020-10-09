@@ -49,6 +49,13 @@
     shownTeam = teamName
   }
 
+  function showHomeTeam() {
+    changeTeam(homeTeamName)
+  }
+  function showVisitingTeam() {
+    changeTeam(visitingTeamName)
+  }
+
   $: showingVisiting = shownTeam === visitingTeamName
   $: shownLineup = showingVisiting ? game.lineups.visiting : game.lineups.home
   $: shownGameplay = showingVisiting
@@ -87,7 +94,7 @@
     font-size: 0.9rem;
   }
 
-  .game-info button {
+  button {
     background: none;
     color: var(--secondary1);
     border: none;
@@ -97,10 +104,8 @@
     font-size: inherit;
     outline: none;
     transition: 0.2s all ease-in-out;
-  }
-
-  .shown-team {
     text-decoration: underline;
+    font-weight: 800;
   }
 
   .stats {
@@ -147,19 +152,11 @@
 <div class="game-container">
   <div class="game-info">
     <div>
-      <button
-        on:click={() => changeTeam(visitingTeamName)}
-        type="button"
-        class={showingVisiting ? 'shown-team' : ''}>
+      <button on:click={showVisitingTeam} type="button">
         {visitingTeamName}
       </button>
-      @
-      <button
-        on:click={() => changeTeam(homeTeamName)}
-        type="button"
-        class={!showingVisiting ? 'shown-team' : ''}>
-        {homeTeamName}
-      </button>
+      <span>@</span>
+      <button on:click={showHomeTeam} type="button">{homeTeamName}</button>
     </div>
     <div>{formatDate(game.gameInfo.date)}{getTimeString()}</div>
     <div>{game.gameInfo.location}</div>
