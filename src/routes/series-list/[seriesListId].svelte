@@ -69,7 +69,7 @@
 <style>
   .series-info {
     font-size: 1.2rem;
-    font-weight: 800;
+    font-weight: 600;
   }
 
   .series-date {

@@ -105,7 +105,7 @@
     outline: none;
     transition: 0.2s all ease-in-out;
     text-decoration: underline;
-    font-weight: 800;
+    font-weight: 600;
   }
 
   .stats {

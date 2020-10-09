@@ -41,7 +41,7 @@
 
   .game-teams {
     font-size: 1.2em;
-    font-weight: 800;
+    font-weight: 600;
   }
 
   .game-date {

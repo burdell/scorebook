@@ -28,7 +28,7 @@
 <style>
   .list-name {
     font-size: 1.3rem;
-    font-weight: 800;
+    font-weight: 600;
   }
 
   .list-description {

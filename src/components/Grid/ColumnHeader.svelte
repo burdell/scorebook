@@ -1,7 +1,7 @@
 <style>
   .column-header {
     text-align: center;
-    font-weight: 800;
+    font-weight: 600;
     border-bottom: 1px solid var(--gridColor);
 
     width: 100%;
