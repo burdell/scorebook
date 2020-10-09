@@ -68,12 +68,12 @@
 
 <style>
   .series-info {
-    font-size: 1.2rem;
+    font-size: var(--listItemTitle);
     font-weight: 600;
   }
 
   .series-date {
-    font-size: 0.8rem;
+    font-size: var(--listItemDescription);
     color: var(--gray3);
   }
 

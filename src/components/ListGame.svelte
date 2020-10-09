@@ -22,7 +22,6 @@
   .list-game {
     display: flex;
     align-items: center;
-    font-size: 1rem;
   }
 
   .game-info {
@@ -33,14 +32,14 @@
 
   .game-description {
     color: var(--gray2);
-    font-size: 0.9em;
+    font-size: var(--listItemDescription);
     text-align: center;
     flex: 2;
     padding: 0.5rem;
   }
 
   .game-teams {
-    font-size: 1.2em;
+    font-size: var(--listItemTitle);
     font-weight: 600;
   }
 

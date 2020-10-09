@@ -22,17 +22,16 @@
   }
 
   export let lists: ListType[] = []
-  $: lists = lists
 </script>
 
 <style>
   .list-name {
-    font-size: 1.3rem;
+    font-size: var(--listItemTitle);
     font-weight: 600;
   }
 
   .list-description {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: var(--gray3);
   }
 
@@ -47,13 +46,11 @@
 
 <ContentPage>
   {#each lists as list}
-    <ListItem>
-      <a href="/{getListUrlType(list.type)}/{list.listId}">
-        <div>
-          <div class="list-name">{list.name}</div>
-          <div class="list-description">{list.description}</div>
-        </div>
-      </a>
-    </ListItem>
+    <a href="/{getListUrlType(list.type)}/{list.listId}">
+      <ListItem>
+        <div class="list-name">{list.name}</div>
+        <div class="list-description">{list.description}</div>
+      </ListItem>
+    </a>
   {/each}
 </ContentPage>

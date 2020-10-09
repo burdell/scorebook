@@ -3,6 +3,8 @@
   --borderRadius: 10px;
   --gridColor: var(--gray4);
   --minGrid: 6rem;
+  --listItemTitle: 1.1rem;
+  --listItemDescription: 0.9rem;
 }
 
 body {
