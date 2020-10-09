@@ -62,11 +62,11 @@
   }
 
   .up {
-    top: -1px;
+    top: 0.2rem;
   }
 
   .down {
-    bottom: -1px;
+    bottom: 0.2rem;
   }
 
   .lineup-player {
@@ -78,10 +78,11 @@
 
   button {
     position: absolute;
-    right: 0;
+    right: 0.1rem;
     border-radius: 50%;
-    width: 1.3rem;
-    height: 1.3rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0 0.2rem;
     border: none;
     border: 1px solid var(--secondary6);
     background-color: var(--secondary9);
@@ -90,6 +91,8 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    display: flex;
+    align-items: center;
   }
 
   .button-control {
@@ -118,6 +121,15 @@
         <Up />
       </div>
     </button>
+    <button
+      type="button"
+      disabled={offset + shownPlayerCount >= lineupEntry.length}
+      on:click={scrollDown}
+      class="down">
+      <div class="button-control">
+        <Down />
+      </div>
+    </button>
   {/if}
   <div>
     {#each shownPlayers as { position, player, inning }}
@@ -132,15 +144,4 @@
       </div>
     {/each}
   </div>
-  {#if showControls}
-    <button
-      type="button"
-      disabled={offset + shownPlayerCount >= lineupEntry.length}
-      on:click={scrollDown}
-      class="down">
-      <div class="button-control">
-        <Down />
-      </div>
-    </button>
-  {/if}
 </div>
