@@ -47,5 +47,9 @@ code {
 @media only screen and (max-device-width: 1024px) {
   html {
     font-size: 12px;
+    text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
   }
 }
