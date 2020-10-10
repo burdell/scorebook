@@ -13,7 +13,11 @@
 
   .section-text {
     padding-left: 1rem;
-    font-size: 1rem;
+    font-size: 1.1rem;
+  }
+
+  .subsection {
+    margin-bottom: 1rem;
   }
 
   h1 {
@@ -34,7 +38,7 @@
       <a
         target="_blank"
         href="https://en.wikipedia.org/wiki/Baseball_scorekeeping">
-        scorecards
+        baseball scorecards
       </a>
       from
       <a target="_blank" href="https://www.retrosheet.org/">Retrosheet</a>
@@ -42,30 +46,9 @@
     </div>
   </div>
   <div class="section">
-    <h1>I found something wrong!</h1>
-    <div class="section-text">
-      <a target="_blank" href="https://github.com/burdell/scorekeeper/issues">
-        Open a GitHub issue
-      </a>
-      or drop me a line on
-      <a target="_blank" href="https://www.twitter.com/nathaniscool">Twitter</a>
-      to let me know! I can only tell when events aren't handled at all, or if
-      there's an error when handling an event.
-    </div>
-    <div />
-    <div class="section-text">
-
-      <a target="_blank" href="https://www.baseball-reference.com/">
-        Baseball Reference
-      </a>
-      has play-by-plays of most games that you can check to see how a specific
-      scenario actually went down.
-    </div>
-  </div>
-  <div class="section">
     <h1>How does it work?</h1>
     <div class="section-text">
-      <div>You can peek all the code that makes this hum on GitHub:</div>
+      <div>All the code for this can be found in these 3 repos:</div>
       <ul>
         <li>
           <a target="_blank" href="https://github.com/burdell/retrosheet-parse">
@@ -83,9 +66,31 @@
           <a target="_blank" href="https://github.com/burdell/scorebook">
             scorebook
           </a>
-          (what you are looking at right now)
+          (what you're looking at)
         </li>
       </ul>
+    </div>
+  </div>
+  <div class="section">
+    <h1>I found something wrong!</h1>
+    <div class="section-text subsection">
+      <a target="_blank" href="https://github.com/burdell/scorekeeper/issues">
+        Open a GitHub issue
+      </a>
+      or drop me a line on
+      <a target="_blank" href="https://www.twitter.com/nathaniscool">Twitter</a>
+      to let me know! I can only tell when events aren't handled at all, or if
+      there's an error when handling an event.
+    </div>
+    <div />
+    <div class="section-text">
+      <a target="_blank" href="https://www.baseball-reference.com/">
+        Baseball Reference
+      </a>
+      has play-by-plays of most games that can tell you how a situation
+      happened. (I'm pretty sure they also use Retrosheet because the game IDs
+      are the same. You can usually just Google that ID and the BR page will
+      show up)
     </div>
   </div>
   <div class="section">

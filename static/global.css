@@ -4,7 +4,7 @@
   --gridColor: var(--gray4);
   --minGrid: 6rem;
   --listItemTitle: 1.2rem;
-  --listItemDescription: 0.9rem;
+  --listItemDescription: 1rem;
 }
 
 body {
