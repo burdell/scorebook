@@ -62,7 +62,7 @@
   }
 
   .up {
-    top: 0.2rem;
+    top: 0.3rem;
   }
 
   .down {
