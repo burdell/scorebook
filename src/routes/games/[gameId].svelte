@@ -38,6 +38,7 @@
 
   function formatDate(date: string) {
     return new Date(date).toLocaleDateString('en', {
+      weekday: 'long',
       month: 'short',
       day: 'numeric',
       year: 'numeric',
