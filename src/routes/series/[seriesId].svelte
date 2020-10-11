@@ -28,8 +28,5 @@
 </svelte:head>
 
 <ContentContainer>
-  <Series
-    display={seriesDisplay}
-    games={series.games}
-    info={series.seriesInfo} />
+  <Series display={seriesDisplay} games={series.games} />
 </ContentContainer>

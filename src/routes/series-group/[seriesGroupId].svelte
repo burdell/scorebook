@@ -32,9 +32,6 @@
 
 <ContentContainer>
   {#each seriesGroup as series}
-    <Series
-      display={getSeriesDisplay(series)}
-      games={series.games}
-      info={series.seriesInfo} />
+    <Series display={getSeriesDisplay(series)} games={series.games} />
   {/each}
 </ContentContainer>
