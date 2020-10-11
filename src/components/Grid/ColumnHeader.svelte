@@ -3,7 +3,7 @@
     text-align: center;
     font-weight: 600;
     border-bottom: 1px solid var(--gridColor);
-
+    color: var(--gray2);
     width: 100%;
     display: flex;
     justify-content: center;

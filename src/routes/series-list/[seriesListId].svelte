@@ -70,7 +70,6 @@
 <style>
   .series-info {
     font-size: var(--listItemTitle);
-    font-weight: 400;
   }
 
   a {

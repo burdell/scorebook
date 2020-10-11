@@ -5,7 +5,6 @@
 <style>
   nav {
     border-bottom: 1px solid var(--gray7);
-    font-weight: 300;
     padding: 0 1em;
     display: flex;
     align-items: center;
@@ -31,7 +30,6 @@
   .site-title {
     font-size: 2rem;
     padding: 0.5rem 0;
-    font-weight: 300;
     font-family: 'Arvo', serif;
   }
 
@@ -41,7 +39,6 @@
 
   .links a {
     padding-top: 0.5rem;
-    font-weight: 400;
     color: var(--primary3);
     font-size: 1rem;
     transition: 0.2s all ease-in-out;

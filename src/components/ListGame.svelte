@@ -41,7 +41,6 @@
 
   .game-teams {
     font-size: var(--listItemTitle);
-    font-weight: 400;
   }
 
   a {
