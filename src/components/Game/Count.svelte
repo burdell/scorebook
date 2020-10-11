@@ -8,8 +8,8 @@
 <style>
   .count {
     position: absolute;
-    bottom: 3px;
-    right: 3px;
+    bottom: 2px;
+    right: 2px;
   }
 
   .count-item {
