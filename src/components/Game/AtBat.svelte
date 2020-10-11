@@ -21,7 +21,6 @@
     border-right: 1px solid var(--gridColor);
     height: 100%;
     min-width: var(--minGrid);
-    font-family: 'Inconsolata', sans-serif;
   }
 
   .out {

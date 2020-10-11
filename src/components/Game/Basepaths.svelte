@@ -55,7 +55,8 @@
   }
 
   .result-display {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
+    font-weight: 600;
   }
 
   .centered-result {
@@ -64,7 +65,7 @@
 
   .base-result {
     position: absolute;
-    font-size: 0.7rem;
+    font-size: 0.6rem;
   }
 
   .base-result-1 {
@@ -72,7 +73,7 @@
   }
 
   .base-result-2 {
-    transform: rotate(-45deg) translateY(-1.9rem);
+    transform: rotate(-45deg) translateY(-2rem);
   }
 
   .base-result-3 {
