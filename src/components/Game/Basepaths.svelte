@@ -68,7 +68,7 @@
   }
 
   .base-result-1 {
-    transform: rotate(-45deg) translateX(2rem);
+    transform: rotate(-45deg) translateX(2.1rem);
   }
 
   .base-result-2 {
@@ -76,7 +76,7 @@
   }
 
   .base-result-3 {
-    transform: rotate(-45deg) translateX(-2rem);
+    transform: rotate(-45deg) translateX(-2.1rem);
   }
 
   .base-result-4 {
