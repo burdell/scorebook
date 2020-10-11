@@ -7,18 +7,15 @@
 
 <style>
   .count {
-    font-size: 0.8rem;
-    font-style: italic;
-    font-weight: 300;
     position: absolute;
-    bottom: 2px;
-    right: 2px;
+    bottom: 3px;
+    right: 3px;
   }
 
   .count-item {
     border: 1px solid var(--gray3);
-    width: 0.3rem;
-    height: 0.3rem;
+    width: 0.25rem;
+    height: 0.25em;
     margin-right: 0.1rem;
     margin-bottom: 0.2rem;
     border-radius: 50%;

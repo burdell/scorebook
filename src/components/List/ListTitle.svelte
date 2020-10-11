@@ -4,7 +4,6 @@
     padding: 1rem 0 0 0;
     font-size: 1.1rem;
     color: var(--primary8);
-    font-weight: 400;
     display: flex;
     justify-content: space-between;
   }

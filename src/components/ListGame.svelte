@@ -1,4 +1,5 @@
 <script>
+  import DateDisplay from './DateDisplay.svelte'
   import type { ListGame } from '../types'
 
   function formatDate(
@@ -31,7 +32,7 @@
   }
 
   .game-description {
-    color: var(--gray2);
+    color: var(--gray3);
     font-size: var(--listItemDescription);
     text-align: center;
     flex: 2;
@@ -40,12 +41,7 @@
 
   .game-teams {
     font-size: var(--listItemTitle);
-    font-weight: 600;
-  }
-
-  .game-date {
-    font-size: 0.9em;
-    color: var(--gray3);
+    font-weight: 400;
   }
 
   a {
@@ -64,10 +60,10 @@
   }
 </style>
 
-<a href="/games/{game.id}">
+<a href="/game/{game.id}">
   <div class="list-game">
     <div class="game-info">
-      <div class="game-date">{formatDate(game.date)}</div>
+      <DateDisplay>{formatDate(game.date)}</DateDisplay>
       <div class="game-teams">
         <div>{game.visitingTeam} {game.visitingScore}</div>
         <div>{game.homeTeam} {game.homeScore}</div>

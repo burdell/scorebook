@@ -16,8 +16,9 @@
   import Content from '../../components/Content/Content.svelte'
   import ListItem from '../../components/List/ListItem.svelte'
   import ListTitle from '../../components/List/ListTitle.svelte'
-  import { getMonthDayRange } from '../../utils/date'
   import ContentContainer from '../../components/Content/ContentContainer.svelte'
+  import DateDisplay from '../../components/DateDisplay.svelte'
+  import { getMonthDayRange } from '../../utils/date'
 
   export let seriesList: Season
 
@@ -69,12 +70,7 @@
 <style>
   .series-info {
     font-size: var(--listItemTitle);
-    font-weight: 600;
-  }
-
-  .series-date {
-    font-size: var(--listItemDescription);
-    color: var(--gray3);
+    font-weight: 400;
   }
 
   a {
@@ -93,8 +89,8 @@
       {#each shownSeries.series as series}
         <ListItem>
           <a href={`/series/${series.seriesId}`}>
+            <DateDisplay>{getMonthDayRange(series)}</DateDisplay>
             <div class="series-info">{getSeriesInfo(series)}</div>
-            <div class="series-date">{getMonthDayRange(series)}</div>
           </a>
         </ListItem>
       {/each}
