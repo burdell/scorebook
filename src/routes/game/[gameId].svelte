@@ -65,8 +65,6 @@
   $: shownPitchers = showingVisiting
     ? game.pitchers.visiting
     : game.pitchers.home
-  $: homeSelectorClass = showingVisiting ? '' : 'showing-team'
-  $: visitingSelectorClass = showingVisiting ? 'showing-team' : ''
 </script>
 
 <style>
@@ -110,7 +108,7 @@
     font-weight: 600;
   }
 
-  .showing-team {
+  .showing {
     text-decoration: underline;
   }
 
@@ -161,11 +159,14 @@
       <button
         on:click={showVisitingTeam}
         type="button"
-        class={visitingSelectorClass}>
+        class:showing={showingVisiting}>
         {visitingTeamName}
       </button>
       <span>@</span>
-      <button on:click={showHomeTeam} type="button" class={homeSelectorClass}>
+      <button
+        on:click={showHomeTeam}
+        type="button"
+        class:showing={!showingVisiting}>
         {homeTeamName}
       </button>
     </div>
