@@ -69,15 +69,15 @@
   }
 
   .base-result-1 {
-    transform: rotate(-45deg) translateX(2rem);
+    transform: rotate(-45deg) translateX(2.1rem);
   }
 
   .base-result-2 {
-    transform: rotate(-45deg) translateY(-2rem);
+    transform: rotate(-45deg) translateY(-1.9rem);
   }
 
   .base-result-3 {
-    transform: rotate(-45deg) translateX(-2rem);
+    transform: rotate(-45deg) translateX(-2.1rem);
   }
 
   .base-result-4 {
