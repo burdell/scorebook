@@ -56,7 +56,6 @@
 
   .result-display {
     font-size: 0.8rem;
-    font-weight: 500;
   }
 
   .centered-result {
