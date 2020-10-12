@@ -24,10 +24,11 @@
   }
 
   .out {
-    background-color: var(--tertiary8);
+    background-color: var(--tertiary9);
     border-radius: 50%;
-    height: 0.4rem;
-    width: 0.4rem;
+    height: 0.3rem;
+    width: 0.3rem;
+    border: 1px solid var(--tertiary8);
     position: absolute;
     top: 5px;
     right: 5px;
@@ -43,7 +44,7 @@
     color: var(--secondary4);
     font-size: 0.5rem;
     font-weight: 800;
-    padding: 0 0.2rem;
+    padding: 0 0.15rem;
     display: flex;
     align-items: center;
     justify-content: center;
