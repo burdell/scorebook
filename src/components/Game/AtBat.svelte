@@ -32,11 +32,30 @@
     top: 5px;
     right: 5px;
   }
+
+  .sacrifice {
+    background-color: var(--secondary9);
+    border: 1px solid var(--secondary7);
+    border-radius: 10px;
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    color: var(--secondary4);
+    font-size: 0.5rem;
+    font-weight: 800;
+    padding: 0 0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 </style>
 
 <ColumnItem>
   <div class="at-bat">
     {#if atBat && atBat.result}
+      {#if atBat.isSacrifice}
+        <div class="sacrifice">SAC</div>
+      {/if}
       <Basepaths result={atBat.result} bases={atBat.bases} />
       <Count balls={atBat.balls} strikes={atBat.strikes} />
       {#if atBat.isOut}

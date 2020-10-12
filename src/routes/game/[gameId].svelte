@@ -93,12 +93,12 @@
     margin: 0 auto;
     background-color: var(--gray9);
     font-size: 0.9rem;
+    align-items: center;
   }
 
   button {
     background: none;
     color: var(--secondary1);
-    border: none;
     padding: 0.1rem;
     cursor: pointer;
     font-family: inherit;
@@ -106,9 +106,16 @@
     outline: none;
     transition: 0.2s all ease-in-out;
     font-weight: 600;
+    border: none;
+    border-bottom: 1px solid transparent;
+  }
+
+  button:hover {
+    text-shadow: 0px 0px 4px var(--gray5);
   }
 
   .showing {
+    text-shadow: 0px 0px 4px var(--gray5);
     text-decoration: underline;
   }
 

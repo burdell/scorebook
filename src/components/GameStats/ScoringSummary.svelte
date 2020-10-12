@@ -32,7 +32,7 @@
   }
 
   .total {
-    font-weight: 900;
+    font-weight: 800;
     text-align: center;
   }
 
