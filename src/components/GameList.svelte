@@ -5,9 +5,10 @@
   import ListItem from './List/ListItem.svelte'
 
   export let games: ListGameType[]
+  export let title: string
 </script>
 
-<Content>
+<Content {title}>
   {#each games as game}
     <ListItem>
       <ListGame {game} />

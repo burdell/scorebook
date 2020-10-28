@@ -11,7 +11,7 @@
 
 <div class="content-page">
   <ContentContainer>
-    <Content>
+    <Content title="">
       <slot />
     </Content>
   </ContentContainer>

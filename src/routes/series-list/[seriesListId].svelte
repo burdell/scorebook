@@ -15,7 +15,6 @@
   import type { Series, Season } from '../../types'
   import Content from '../../components/Content/Content.svelte'
   import ListItem from '../../components/List/ListItem.svelte'
-  import ListTitle from '../../components/List/ListTitle.svelte'
   import ContentContainer from '../../components/Content/ContentContainer.svelte'
   import DateDisplay from '../../components/DateDisplay.svelte'
   import { getMonthDayRange } from '../../utils/date'
@@ -83,8 +82,7 @@
 
 <ContentContainer>
   {#each shownSeries as shownSeries}
-    <ListTitle>{shownSeries.monthYear}</ListTitle>
-    <Content>
+    <Content title={shownSeries.monthYear}>
       {#each shownSeries.series as series}
         <ListItem>
           <a href={`/series/${series.seriesId}`}>

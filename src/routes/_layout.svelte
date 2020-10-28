@@ -3,15 +3,11 @@
 </script>
 
 <script>
-  import { stores } from '@sapper/app'
   import Nav from '../components/Nav.svelte'
 
   export let segment: string = ''
   if (segment) {
   }
-  const { page }: any = stores()
-  let path: string
-  $: path = $page.path.slice(1)
 </script>
 
 <style>

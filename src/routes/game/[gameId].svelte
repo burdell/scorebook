@@ -84,14 +84,13 @@
   }
 
   .game-info {
-    background-color: var(--white9);
+    background-color: var(--gray9);
     padding: 0.5rem 1rem;
     border-radius: 10px 10px 0 0;
     border-bottom: 1px solid var(--gray4);
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
-    background-color: var(--gray9);
     font-size: 0.9rem;
     align-items: center;
   }
