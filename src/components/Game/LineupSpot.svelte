@@ -38,17 +38,21 @@
     }
   }
 
+  let currentOffset = 0
   function scrollUp() {
-    offset = offset - 1
+    currentOffset = currentOffset - 1
   }
 
   function scrollDown() {
-    offset = offset + 1
+    currentOffset = currentOffset + 1
   }
 
   $: showControls = lineupEntry.length > shownPlayerCount
-  $: offset = 0
-  $: shownPlayers = lineupEntry.slice(offset, offset + shownPlayerCount)
+  $: shownPlayers = lineupEntry.slice(
+    currentOffset,
+    currentOffset + shownPlayerCount,
+  )
+  $: if (lineupEntry) currentOffset = 0
 </script>
 
 <style>
@@ -114,7 +118,7 @@
   {#if showControls}
     <button
       type="button"
-      disabled={offset === 0}
+      disabled={currentOffset === 0}
       on:click={scrollUp}
       class="up">
       <div class="button-control">
@@ -123,7 +127,7 @@
     </button>
     <button
       type="button"
-      disabled={offset + shownPlayerCount >= lineupEntry.length}
+      disabled={currentOffset + shownPlayerCount >= lineupEntry.length}
       on:click={scrollDown}
       class="down">
       <div class="button-control">
