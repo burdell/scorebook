@@ -36,17 +36,12 @@
   function getSeriesInfo({
     visitingTeam,
     homeTeam,
-    homeWins,
-    visitingWins,
+    targetTeamWins,
+    otherTeamWins,
     seriesName,
   }: Series) {
     const seriesDisplay = seriesName || getTeamDisplay(homeTeam, visitingTeam)
-
-    const isVisiting = targetTeam === visitingTeam
-    const targetRuns = isVisiting ? visitingWins : homeWins
-    const otherRuns = isVisiting ? homeWins : visitingWins
-
-    return `${seriesDisplay} (${targetRuns}-${otherRuns})`
+    return `${seriesDisplay} (${targetTeamWins}-${otherTeamWins})`
   }
 
   const seriesByMonth: {
