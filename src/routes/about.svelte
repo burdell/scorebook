@@ -16,10 +16,6 @@
     font-size: 1.1rem;
   }
 
-  .subsection {
-    margin-bottom: 1rem;
-  }
-
   h1 {
     font-weight: 600;
     font-size: 1.2rem;
@@ -69,28 +65,6 @@
           (what you're looking at)
         </li>
       </ul>
-    </div>
-  </div>
-  <div class="section">
-    <h1>I found something wrong!</h1>
-    <div class="section-text subsection">
-      <a target="_blank" href="https://github.com/burdell/scorekeeper/issues">
-        Open a GitHub issue
-      </a>
-      or drop me a line on
-      <a target="_blank" href="https://www.twitter.com/nathaniscool">Twitter</a>
-      to let me know! I can only tell when events aren't handled at all, or if
-      there's an error when handling an event.
-    </div>
-    <div />
-    <div class="section-text">
-      <a target="_blank" href="https://www.baseball-reference.com/">
-        Baseball Reference
-      </a>
-      has play-by-plays of most games that can tell you how a situation
-      happened. (I'm pretty sure they also use Retrosheet because the game IDs
-      are the same. You can usually just Google that ID and the BR page will
-      show up)
     </div>
   </div>
   <div class="section">
